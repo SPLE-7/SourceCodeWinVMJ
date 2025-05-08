@@ -1,0 +1,30 @@
+namespace LibraryManagementSystem
+
+features
+	LibraryManagementSystem {abstract true}
+		mandatory
+			DaftarBuku {abstract true}
+				alternative
+					BukuFisik
+					BukuDigital
+		optional
+			Statistik {abstract true}
+				or
+					GenreStatistik
+					AuthorStatistik
+			PeminjamanBuku
+				optional
+					Renewal
+			Review {abstract true}
+				or
+					DenganKomentar
+					DenganBintang
+			Wishlist {abstract true}
+				alternative
+					WithNote
+					WithStatus
+			Rekomendasi {abstract true}
+				alternative
+					Genre
+					Author
+

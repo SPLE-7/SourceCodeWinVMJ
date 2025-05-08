@@ -1,0 +1,53 @@
+{
+	"DaftarBuku": [
+		"LibraryManagementSystem.buku.core"
+	],
+	"BukuFisik": [
+		"LibraryManagementSystem.buku.bukufisik"
+	],
+	"BukuDigital": [
+		"LibraryManagementSystem.buku.bukudigital"
+	],
+	"Statistik": [
+		"LibraryManagementSystem.statistik.core"
+	],
+	"GenreStatistik": [
+		"LibraryManagementSystem.statistik.genrestatistik"
+	],
+	"AuthorStatistik": [
+		"LibraryManagementSystem.statistik.authorstatistik"
+	],
+	"PeminjamanBuku": [
+		"LibraryManagementSystem.peminjamanbuku.core"
+	],
+	"Renewal": [
+		"LibraryManagementSystem.peminjamanbuku.renewal"
+	],
+	"Review": [
+		"LibraryManagementSystem.review.core"
+	],
+	"DenganKomentar": [
+		"LibraryManagementSystem.review.reviewkomentar"
+	],
+	"DenganBintang": [
+		"LibraryManagementSystem.review.reviewbintang"
+	],
+	"Wishlist": [
+		"LibraryManagementSystem.wishlist.core"
+	],
+	"WithNote": [
+		"LibraryManagementSystem.wishlist.wishlistwithnote"
+	],
+	"WithStatus": [
+		"LibraryManagementSystem.wishlist.wishlistwithstatus"
+	],
+	"Rekomendasi": [
+		"LibraryManagementSystem.recommendation.core"
+	],
+	"Genre": [
+		"LibraryManagementSystem.recommendation.recommendationbygenre"
+	],
+	"Author": [
+		"LibraryManagementSystem.recommendation.recommendationbyauthor"
+	]
+}
