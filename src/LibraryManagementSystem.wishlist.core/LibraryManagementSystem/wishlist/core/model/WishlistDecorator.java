@@ -45,22 +45,6 @@ public abstract class WishlistDecorator extends WishlistComponent {
     public void setIdWishlist(UUID idWishlist) {
       record.idWishlist = idWishlist;
     }
-  
-      public User getAkunimpl() {
-      return record.getAkunimpl();
-    }
-  
-    public void setAkunimpl(User akunimpl) {
-      record.akunimpl = akunimpl;
-    }
-  
-      public Buku getDaftarbukuimpl() {
-      return record.getDaftarbukuimpl();
-    }
-  
-    public void setDaftarbukuimpl(Buku daftarbukuimpl) {
-      record.daftarbukuimpl = daftarbukuimpl;
-    }
 
     public HashMap<String, Object> toHashMap() {
         return this.record.toHashMap();
