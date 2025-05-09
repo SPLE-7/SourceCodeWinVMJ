@@ -22,7 +22,7 @@ public class WishlistResourceImpl extends WishlistResourceDecorator {
 		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
 			return null;
 		}
-		return wishlistServiceImpl.createWishlist(vmjExchange.getPayload()).toHashMap();
+		return wishlistServiceImpl.createWishlistNote(vmjExchange.getPayload()).toHashMap();
 	}
 
 	// @Restriced(permission = "")
@@ -45,9 +45,5 @@ public class WishlistResourceImpl extends WishlistResourceDecorator {
 		}
 		
 		return wishlistServiceImpl.deleteWishlist(vmjExchange.getPayload());
-	}
-
-	public void updateNote(UUID bookId, String newNotes) {
-		// TODO: implement this method
 	}
 }

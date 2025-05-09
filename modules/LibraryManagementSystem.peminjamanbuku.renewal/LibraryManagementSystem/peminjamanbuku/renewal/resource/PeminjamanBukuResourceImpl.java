@@ -6,6 +6,7 @@ import vmj.routing.route.VMJExchange;
 
 import LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuResourceDecorator;
 import LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuServiceComponent;
+import LibraryManagementSystem.peminjamanbuku.core.PeminjamanBuku;
 import LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuImpl;
 import LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuResourceComponent;
 
@@ -25,7 +26,8 @@ public class PeminjamanBukuResourceImpl extends PeminjamanBukuResourceDecorator 
 		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
 			return null;
 		}
-		return peminjamanBukuServiceImpl.createPeminjamanBuku(vmjExchange.getPayload()).toHashMap();
+		PeminjamanBuku peminjamanBuku = RequestRenewal(vmjExchange);
+		return peminjamanBuku.toHashMap();
 	}
 
 	// @Restriced(permission = "")
@@ -38,10 +40,5 @@ public class PeminjamanBukuResourceImpl extends PeminjamanBukuResourceDecorator 
     @Route(url="call/renewal/list")
     public List<HashMap<String,Object>> getAll(VMJExchange vmjExchange){
 		return peminjamanBukuServiceImpl.getAllPeminjamanBuku(vmjExchange.getPayload());
-	}
-
-	public boolean RequestRenewal() {
-		// TODO: implement this method
-		return true;
 	}
 }

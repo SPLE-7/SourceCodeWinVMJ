@@ -34,9 +34,4 @@ public class WishlistImpl extends WishlistDecorator {
 		this.notes = notes;
 		this.objectName = WishlistImpl.class.getName();
 	}
-
-
-	public void updateNote(UUID bookId, String newNotes) {
-		// TODO: implement this method
-	}
 }
