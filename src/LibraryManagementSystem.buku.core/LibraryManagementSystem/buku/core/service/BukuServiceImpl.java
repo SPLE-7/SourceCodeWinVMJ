@@ -24,8 +24,8 @@ public class BukuServiceImpl extends BukuServiceComponent{
 		String judulBuku = (String) requestBody.get("judulBuku");
 		String penulis = (String) requestBody.get("penulis");
 		String penerbit = (String) requestBody.get("penerbit");
-		String jumlahHalamanStr = (String) requestBody.get("jumlahHalaman");
-		int jumlahHalaman = Integer.parseInt(jumlahHalamanStr);
+		Double jumlahHalamanDouble = (Double) requestBody.get("jumlahHalaman");
+    int jumlahHalaman = jumlahHalamanDouble.intValue();
 		String deskripsiBuku = (String) requestBody.get("deskripsiBuku");
 		String genre = (String) requestBody.get("genre");
 		
@@ -44,11 +44,9 @@ public class BukuServiceImpl extends BukuServiceComponent{
 	}
 
     public HashMap<String, Object> getBuku(Map<String, Object> requestBody){
-		// TODO:Nama tabel
 		List<HashMap<String, Object>> bukuList = getAllBuku(requestBody);
 		for (HashMap<String, Object> buku : bukuList){
-			UUID recordId = UUID.fromString((String) buku.get("idBuku"));
-			// TODO:Masih bingung
+			UUID recordId = (UUID) buku.get("idBuku");
 			if (recordId.equals(requestBody.get("idBuku"))) {
 				return buku;
 			}
@@ -57,11 +55,8 @@ public class BukuServiceImpl extends BukuServiceComponent{
 	}
 
     public List<HashMap<String,Object>> getAllBuku(Map<String, Object> requestBody){
-		// TODO:Nama tabel
 		String table = "buku_impl";
 		List<Buku> List = bukuRepository.getAllObject(table);
-    System.out.println("List: " + table);
-    System.out.println("List: " + List);
 		return transformListToHashMap(List);
 	}
 
