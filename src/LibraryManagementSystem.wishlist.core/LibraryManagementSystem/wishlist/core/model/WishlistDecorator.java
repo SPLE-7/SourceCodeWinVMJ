@@ -15,21 +15,35 @@ public abstract class WishlistDecorator extends WishlistComponent {
     @OneToOne(cascade = CascadeType.ALL)
     protected WishlistComponent record;
 
-    protected UUID idWishlist = UUID.randomUUID();
-
     public WishlistDecorator() {
         super();
+        this.record = record;
+        this.idWishlist = UUID.randomUUID();
     }
 
     public WishlistDecorator(WishlistComponent record) {
-        super();
         this.record = record;
+        this.idWishlist = UUID.randomUUID();
+    }
+
+    public WishlistDecorator(UUID idWishlist, WishlistComponent record) {
+
+      this.record = record;
+      this.idWishlist =  idWishlist;
     }
 
     public WishlistDecorator(WishlistComponent record, String objectName) {
         super();
         this.record = record;
         this.objectName = objectName;
+    }
+
+    public UUID getIdWishlist() {
+      return record.getIdWishlist();
+    }
+  
+    public void setIdWishlist(UUID idWishlist) {
+      record.idWishlist = idWishlist;
     }
 
     public HashMap<String, Object> toHashMap() {

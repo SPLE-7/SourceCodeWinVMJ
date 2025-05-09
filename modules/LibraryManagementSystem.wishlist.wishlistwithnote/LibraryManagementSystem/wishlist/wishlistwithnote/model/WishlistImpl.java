@@ -16,19 +16,20 @@ import LibraryManagementSystem.wishlist.core.WishlistComponent;
 @Table(name="wishlist_wishlistwithnote")
 public class WishlistImpl extends WishlistDecorator {
 
-	public Map<UUID, String> notes;
+	public String notes;
+
 	public WishlistImpl() {
         super();
         this.objectName = WishlistImpl.class.getName();
     }
     
-    public WishlistImpl(Map<UUID, String> notes) {
+    public WishlistImpl(String notes) {
     	super();
 		this.notes = notes;
 		this.objectName = WishlistImpl.class.getName();
     }
 	
-	public WishlistImpl(WishlistComponent record, Map<UUID, String> notes) {
+	public WishlistImpl(WishlistComponent record, String notes) {
 		super(record);
 		this.notes = notes;
 		this.objectName = WishlistImpl.class.getName();

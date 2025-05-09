@@ -14,40 +14,50 @@ import LibraryManagementSystem.buku.core.Buku;
 
 import javax.persistence.ManyToOne;
 
-
 @Entity
-@Table(name="recommendation_comp")
+@Table(name = "recommendation_comp")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class RecommendationComponent implements Recommendation{
+public abstract class RecommendationComponent implements Recommendation {
+  @Id
+  protected UUID idRecommendation;
 
-	@ManyToOne(targetEntity=LibraryManagementSystem.buku.core.BukuComponent.class)
-	public Buku daftarbukuimpl;
+  @ManyToOne(targetEntity = LibraryManagementSystem.buku.core.BukuComponent.class)
+  public Buku daftarbukuimpl;
 
-	protected String objectName = RecommendationComponent.class.getName();
+  protected String objectName = RecommendationComponent.class.getName();
 
-	public RecommendationComponent() {
+  public RecommendationComponent() {
 
-	} 
+  }
 
-	public RecommendationComponent(
-        Buku daftarbukuimpl
-    ) {
-        this.daftarbukuimpl = daftarbukuimpl;
-    }
+  public RecommendationComponent(
+      UUID idRecommendation,
+      Buku daftarbukuimpl) {
+    this.idRecommendation = idRecommendation;
+    this.daftarbukuimpl = daftarbukuimpl;
+  }
 
-	public Buku getDaftarbukuimpl() {
-		return this.daftarbukuimpl;
-	}
+  public UUID getIdRecommendation() {
+    return this.idRecommendation;
+  }
 
-	public void setDaftarbukuimpl(Buku daftarbukuimpl) {
-		this.daftarbukuimpl = daftarbukuimpl;
-	}
+  public void setIdRecommendation(UUID idRecommendation) {
+    this.idRecommendation = idRecommendation;
+  }
 
-	@Override
-    public String toString() {
-        return "{" +
-            " daftarbukuimpl='" + getDaftarbukuimpl() + "'" +
-            "}";
-    }
-	
+  public Buku getDaftarbukuimpl() {
+    return this.daftarbukuimpl;
+  }
+
+  public void setDaftarbukuimpl(Buku daftarbukuimpl) {
+    this.daftarbukuimpl = daftarbukuimpl;
+  }
+
+  @Override
+  public String toString() {
+    return "{" +
+        " idRecommendation='" + getIdRecommendation() + "'" +
+        " daftarbukuimpl='" + getDaftarbukuimpl() + "'" +
+        "}";
+  }
 }

@@ -19,12 +19,4 @@ public abstract class StatistikServiceDecorator extends StatistikServiceComponen
     public List<HashMap<String,Object>> transformListToHashMap(List<Statistik> List){
 		return record.transformListToHashMap(List);
 	}
-
-	public int hitungTotalBuku() {
-		return record.hitungTotalBuku();
-	}
-
-	public List<Buku> getListObject() {
-        return record.getListObject();
-    }
 }

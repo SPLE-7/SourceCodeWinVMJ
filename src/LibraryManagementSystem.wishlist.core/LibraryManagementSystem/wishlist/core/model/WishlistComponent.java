@@ -22,7 +22,6 @@ public abstract class WishlistComponent implements Wishlist {
     @Id
     public UUID idWishlist;
 
-	// TODO: Import external library 
     @ManyToOne(targetEntity = vmj.auth.model.core.UserComponent.class)
     public User akunimpl;
 
@@ -33,9 +32,18 @@ public abstract class WishlistComponent implements Wishlist {
 
     public WishlistComponent() {}
 
-    public WishlistComponent(User akunimpl, Buku daftarbukuimpl) {
-        this.akunimpl = akunimpl;
-        this.daftarbukuimpl = daftarbukuimpl;
+    public WishlistComponent(UUID idWishlist, User akunimpl, Buku daftarbukuimpl) {
+      this.idWishlist = idWishlist;
+      this.akunimpl = akunimpl;
+      this.daftarbukuimpl = daftarbukuimpl;
+    }
+
+    public UUID getIdWishlist() {
+      return this.idWishlist;
+    }
+  
+    public void setIdWishlist(UUID idWishlist) {
+      this.idWishlist = idWishlist;
     }
 
     public User getAkunimpl() {
@@ -57,6 +65,7 @@ public abstract class WishlistComponent implements Wishlist {
     @Override
     public String toString() {
         return "{" +
+            " idWishlist='" + getIdWishlist() + "'" +
             " akunimpl='" + getAkunimpl() + "'" +
             " daftarbukuimpl='" + getDaftarbukuimpl() + "'" +
             "}";

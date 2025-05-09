@@ -21,8 +21,8 @@ import vmj.auth.model.core.User;
 @Table(name="peminjamanbuku_impl")
 public class PeminjamanBukuImpl extends PeminjamanBukuComponent {
 
-	public PeminjamanBukuImpl(UUID idPeminjamanBuku, String status, User akunimpl, Buku daftarbukuimpl, Date tanggalPeminjaman, Date tanggalPengembalian) {
-		this.idPeminjamanBuku = idPeminjamanBuku;
+  public PeminjamanBukuImpl(String status, User akunimpl, Buku daftarbukuimpl, String tanggalPeminjaman, String tanggalPengembalian) {
+		this.idPeminjamanBuku = UUID.randomUUID();
 		this.status = status;
 		this.akunimpl = akunimpl;
 		this.daftarbukuimpl = daftarbukuimpl;
@@ -30,8 +30,9 @@ public class PeminjamanBukuImpl extends PeminjamanBukuComponent {
 		this.tanggalPengembalian = tanggalPengembalian;
 	}
 
-	public PeminjamanBukuImpl(String status, User akunimpl, Buku daftarbukuimpl, Date tanggalPeminjaman, Date tanggalPengembalian) {
-		this.idPeminjamanBuku =  idPeminjamanBuku.randomUUID();
+
+	public PeminjamanBukuImpl(UUID idPeminjamanBuku, String status, User akunimpl, Buku daftarbukuimpl, String tanggalPeminjaman, String tanggalPengembalian) {
+		this.idPeminjamanBuku = idPeminjamanBuku;
 		this.status = status;
 		this.akunimpl = akunimpl;
 		this.daftarbukuimpl = daftarbukuimpl;
@@ -55,18 +56,18 @@ public class PeminjamanBukuImpl extends PeminjamanBukuComponent {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public Date getTanggalPeminjaman() {
+	public String getTanggalPeminjaman() {
 		return this.tanggalPeminjaman;
 	}
 
-	public void setTanggalPeminjaman(Date tanggalPeminjaman) {
+	public void setTanggalPeminjaman(String tanggalPeminjaman) {
 		this.tanggalPeminjaman = tanggalPeminjaman;
 	}
-	public Date getTanggalPengembalian() {
+	public String getTanggalPengembalian() {
 		return this.tanggalPengembalian;
 	}
 
-	public void setTanggalPengembalian(Date tanggalPengembalian) {
+	public void setTanggalPengembalian(String tanggalPengembalian) {
 		this.tanggalPengembalian = tanggalPengembalian;
 	}
 

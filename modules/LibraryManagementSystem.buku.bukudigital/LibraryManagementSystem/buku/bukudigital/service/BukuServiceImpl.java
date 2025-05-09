@@ -12,6 +12,6 @@ public class BukuServiceImpl extends BukuServiceDecorator {
     public BukuServiceImpl (BukuServiceComponent record) {
         super(record);
     }
-
+    
     
 }

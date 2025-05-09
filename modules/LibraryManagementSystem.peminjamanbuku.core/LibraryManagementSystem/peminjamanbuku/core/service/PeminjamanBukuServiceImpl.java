@@ -16,7 +16,6 @@ import vmj.routing.route.exceptions.*;
 import LibraryManagementSystem.peminjamanbuku.PeminjamanBukuFactory;
 import vmj.auth.annotations.Restricted;
 
-import java.time.LocalDate;
 import java.util.Map;
 
 import LibraryManagementSystem.buku.core.Buku;
@@ -30,9 +29,9 @@ public class PeminjamanBukuServiceImpl extends PeminjamanBukuServiceComponent{
 		
 		// Perhatikan nama id user yang dipakai di frontend atau API
 		User akunimpl = userRepository.getObject(UUID.fromString((String) requestBody.get("id")));
-	
-		LocalDate tanggalPeminjaman = LocalDate.now();
-		LocalDate tanggalPengembalian = tanggalPeminjaman.plusDays(7);
+
+    String tanggalPeminjaman = (String) requestBody.get("tanggalPeminjaman");
+    String tanggalPengembalian = (String) requestBody.get("tanggalPengembalian");
 
 		PeminjamanBuku peminjamanbuku = PeminjamanBukuFactory.createPeminjamanBuku(
 			"LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuImpl",
@@ -51,8 +50,9 @@ public class PeminjamanBukuServiceImpl extends PeminjamanBukuServiceComponent{
 		List<HashMap<String, Object>> peminjamanbukuList = getAllPeminjamanBuku(requestBody);
 		for (HashMap<String, Object> peminjamanbuku : peminjamanbukuList){
 
-			UUID recordId = UUID.fromString((String) peminjamanbuku.get("idPeminjamanBuku"));
-			if (recordId.equals(requestBody.get("idPeminjamanBuku"))){
+			UUID recordId = (UUID) peminjamanbuku.get("idPeminjamanBuku");
+      UUID id = UUID.fromString((String) requestBody.get("idPeminjamanBuku"));
+			if (recordId.equals(id)){
 				return peminjamanbuku;
 			}
 		}
@@ -60,7 +60,7 @@ public class PeminjamanBukuServiceImpl extends PeminjamanBukuServiceComponent{
 	}
 
     public List<HashMap<String,Object>> getAllPeminjamanBuku(Map<String, Object> requestBody){
-		String table = (String) requestBody.get("table_name");
+		String table = "peminjamanbuku_impl";
 		List<PeminjamanBuku> List = peminjamanRepository.getAllObject(table);
 		return transformListToHashMap(List);
 	}

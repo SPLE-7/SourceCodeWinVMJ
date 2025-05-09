@@ -16,19 +16,19 @@ import LibraryManagementSystem.wishlist.core.WishlistComponent;
 @Table(name="wishlist_wishlistwithstatus")
 public class WishlistImpl extends WishlistDecorator {
 
-	public Map<UUID, String> status;
+	public String status;
 	public WishlistImpl() {
         super();
         this.objectName = WishlistImpl.class.getName();
     }
     
-    public WishlistImpl(Map<UUID, String> status) {
+    public WishlistImpl(String status) {
     	super();
 		this.status = status;
 		this.objectName = WishlistImpl.class.getName();
     }
 	
-	public WishlistImpl(WishlistComponent record, Map<UUID, String> status) {
+	public WishlistImpl(WishlistComponent record, String status) {
 		super(record);
 		this.status = status;
 		this.objectName = WishlistImpl.class.getName();

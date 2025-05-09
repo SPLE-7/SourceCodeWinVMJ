@@ -18,15 +18,13 @@ import LibraryManagementSystem.review.ReviewFactory;
 import vmj.auth.annotations.Restricted;
 //add other required packages
 
-import java.time.LocalDate;
-
 import LibraryManagementSystem.buku.core.Buku;
 
 public class ReviewServiceImpl extends ReviewServiceComponent{
 
     public Review createReview(Map<String, Object> requestBody){
 		Buku daftarbukuimpl = bukuRepository.getObject(UUID.fromString((String) requestBody.get("idBuku")));
-		LocalDate postedAt = LocalDate.now();
+		String postedAt = requestBody.get("postedAt").toString();
 		//to do: fix association attributes
 		Review review = ReviewFactory.createReview(
 			"LibraryManagementSystem.review.core.ReviewImpl"
@@ -40,8 +38,9 @@ public class ReviewServiceImpl extends ReviewServiceComponent{
     public HashMap<String, Object> getReview(Map<String, Object> requestBody){
 		List<HashMap<String, Object>> reviewList = getAllReview(requestBody);
 		for (HashMap<String, Object> review : reviewList){
-			UUID recordId = UUID.fromString((String) review.get("idReview"));
-			if (recordId.equals(requestBody.get("idReview"))){
+      UUID recordId = (UUID) review.get("idReview");
+      UUID id = UUID.fromString((String) requestBody.get("idReview"));
+			if (recordId.equals(id)){
 				return review;
 			}
 		}
@@ -49,7 +48,7 @@ public class ReviewServiceImpl extends ReviewServiceComponent{
 	}
 
     public List<HashMap<String,Object>> getAllReview(Map<String, Object> requestBody){
-		String table = (String) requestBody.get("table_name");
+		String table = "review_impl";
 		List<Review> List = reviewRepository.getAllObject(table);
 		return transformListToHashMap(List);
 	}

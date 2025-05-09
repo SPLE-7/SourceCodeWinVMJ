@@ -17,11 +17,11 @@ public abstract class ReviewDecorator extends ReviewComponent{
 	public ReviewDecorator () {
 		super();
 		this.record = record;
-		this.idReview =  idReview.randomUUID();
+		this.idReview =  UUID.randomUUID();
 	}
 		
 	public ReviewDecorator (ReviewComponent record) {
-		this.idReview =  idReview.randomUUID();
+		this.idReview =  UUID.randomUUID();
 		this.record = record;
 	}
 
@@ -31,7 +31,7 @@ public abstract class ReviewDecorator extends ReviewComponent{
 	}
 	
 	public ReviewDecorator (ReviewComponent record, String objectName) {
-		this.idReview =  idReview.randomUUID();
+		this.idReview =  UUID.randomUUID();
 		this.record = record;	
 		this.objectName=objectName;
 	}
@@ -42,10 +42,10 @@ public abstract class ReviewDecorator extends ReviewComponent{
 	public void setIdReview(UUID idReview) {
 		record.setIdReview(idReview);
 	}
-	public Date getPostedAt() {
+	public String getPostedAt() {
 		return record.getPostedAt();
 	}
-	public void setPostedAt(Date postedAt) {
+	public void setPostedAt(String postedAt) {
 		record.setPostedAt(postedAt);
 	}
 
