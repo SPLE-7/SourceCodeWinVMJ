@@ -9,8 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.persistence.ManyToOne;
 
 import LibraryManagementSystem.buku.core.Buku;
+import LibraryManagementSystem.buku.core.BukuComponent;
 
 @Entity
 @Table(name="review_comp")
@@ -20,7 +22,10 @@ public abstract class ReviewComponent implements Review{
 	protected UUID idReview; 
 
 	protected Date postedAt;
+
+  @ManyToOne(targetEntity=LibraryManagementSystem.buku.core.BukuComponent.class)
 	public Buku daftarbukuimpl;
+
 	protected String objectName = ReviewComponent.class.getName();
 
 	public ReviewComponent() {

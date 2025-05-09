@@ -17,15 +17,23 @@ public abstract class RecommendationDecorator extends RecommendationComponent{
 	public RecommendationDecorator () {
 		super();
 		this.record = record;
+    this.idRecommendation =  idRecommendation.randomUUID();
+	}
+  
+  public RecommendationDecorator (UUID idRecommendation, RecommendationComponent record) {
+		this.record = record;
+    this.idRecommendation =  idRecommendation;
 	}
 		
 	public RecommendationDecorator (RecommendationComponent record) {
 		this.record = record;
+    this.idRecommendation =  idRecommendation.randomUUID();
 	}
 	
 	public RecommendationDecorator (RecommendationComponent record, String objectName) {
 		this.record = record;	
 		this.objectName=objectName;
+    this.idRecommendation =  idRecommendation.randomUUID();
 	}
 
 	public HashMap<String, Object> toHashMap() {

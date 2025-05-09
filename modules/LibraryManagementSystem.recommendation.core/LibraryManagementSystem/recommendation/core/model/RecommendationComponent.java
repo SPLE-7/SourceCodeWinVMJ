@@ -19,6 +19,8 @@ import javax.persistence.ManyToOne;
 @Table(name="recommendation_comp")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class RecommendationComponent implements Recommendation{
+	@Id
+	protected UUID idRecommendation; 
 
 	@ManyToOne(targetEntity=LibraryManagementSystem.buku.core.BukuComponent.class)
 	public Buku daftarbukuimpl;
@@ -28,12 +30,16 @@ public abstract class RecommendationComponent implements Recommendation{
 	public RecommendationComponent() {
 
 	} 
-
+  
 	public RecommendationComponent(
-        Buku daftarbukuimpl
+    Buku daftarbukuimpl
     ) {
         this.daftarbukuimpl = daftarbukuimpl;
     }
+
+  public UUID getIdRecommendation() {
+    return this.idRecommendation;
+  }
 
 	public Buku getDaftarbukuimpl() {
 		return this.daftarbukuimpl;

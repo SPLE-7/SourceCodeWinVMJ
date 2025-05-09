@@ -17,15 +17,23 @@ public abstract class StatistikDecorator extends StatistikComponent{
 	public StatistikDecorator() {
 		super();
 		this.record = record;
+    this.idStatistik =  idStatistik.randomUUID();
 	}
 		
 	public StatistikDecorator (StatistikComponent record) {
 		this.record = record;
+    this.idStatistik =  idStatistik.randomUUID();
+	}
+
+  public StatistikDecorator (UUID idStatistik,StatistikComponent record) {
+		this.record = record;
+    this.idStatistik =  idStatistik;
 	}
 	
 	public StatistikDecorator (StatistikComponent record, String objectName) {
 		this.record = record;	
 		this.objectName=objectName;
+    this.idStatistik =  idStatistik.randomUUID();
 	}
 
 

@@ -18,6 +18,8 @@ import LibraryManagementSystem.buku.core.Buku;
 @Table(name="statistik_comp")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class StatistikComponent implements Statistik{
+  @Id
+	protected UUID idStatistik; 
 	
 	@ManyToOne(targetEntity=LibraryManagementSystem.buku.core.BukuComponent.class)
 	public Buku daftarbukuimpl;
@@ -33,6 +35,10 @@ public abstract class StatistikComponent implements Statistik{
     ) {
         this.daftarbukuimpl = daftarbukuimpl;
     }
+
+  public UUID getIdStatistik() {
+    return this.idStatistik;
+  }
 
 	public Buku getDaftarbukuimpl() {
 		return this.daftarbukuimpl;

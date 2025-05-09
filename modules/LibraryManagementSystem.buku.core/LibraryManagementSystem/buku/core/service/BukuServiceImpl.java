@@ -58,7 +58,7 @@ public class BukuServiceImpl extends BukuServiceComponent{
 
     public List<HashMap<String,Object>> getAllBuku(Map<String, Object> requestBody){
 		// TODO:Nama tabel
-		String table = (String) requestBody.get("table_name");
+		String table = "buku_impl";
 		List<Buku> List = bukuRepository.getAllObject(table);
 		return transformListToHashMap(List);
 	}
