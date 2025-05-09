@@ -17,11 +17,11 @@ public abstract class BukuDecorator extends BukuComponent{
 	public BukuDecorator () {
 		super();
 		this.record = record;
-		this.idBuku =  idBuku.randomUUID();
+		this.idBuku =  UUID.randomUUID();
 	}
 
 	public BukuDecorator (BukuComponent record) {
-		this.idBuku =  idBuku.randomUUID();
+		this.idBuku =  UUID.randomUUID();
 		this.record = record;
 	}
 
@@ -31,7 +31,7 @@ public abstract class BukuDecorator extends BukuComponent{
 	}
 	
 	public BukuDecorator (BukuComponent record, String objectName) {
-		this.idBuku =  idBuku.randomUUID();
+		this.idBuku =  UUID.randomUUID();
 		this.record = record;	
 		this.objectName=objectName;
 	}

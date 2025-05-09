@@ -23,7 +23,6 @@ public abstract class PeminjamanBukuComponent implements PeminjamanBuku{
 	protected UUID idPeminjamanBuku; 
 	protected String status;
 
-	// AMBIL DARI EXTERNAL LIBRARY
 	@ManyToOne(targetEntity=vmj.auth.model.core.UserComponent.class)
 	public User akunimpl;
 

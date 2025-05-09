@@ -7,6 +7,9 @@ import LibraryManagementSystem.buku.core.Buku;
 import vmj.auth.model.core.User;
 
 public interface Wishlist {
+    public UUID getIdWishlist();
+    public void setIdWishlist(UUID idWishlist);
+
     User getAkunimpl();
     void setAkunimpl(User akunimpl);
     

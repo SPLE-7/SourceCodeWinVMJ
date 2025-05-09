@@ -20,14 +20,37 @@ import LibraryManagementSystem.buku.core.Buku;
 @Table(name="recommendation_impl")
 public class RecommendationImpl extends RecommendationComponent {
 
-	public RecommendationImpl(Buku daftarbukuimpl) {
+  public RecommendationImpl(Buku daftarbukuimpl) {
+		this.idRecommendation = UUID.randomUUID();
+		this.daftarbukuimpl = daftarbukuimpl;
+	}
+
+	public RecommendationImpl(UUID idRecommendation, Buku daftarbukuimpl) {
+		this.idRecommendation = idRecommendation;
 		this.daftarbukuimpl = daftarbukuimpl;
 	}
 
 	public RecommendationImpl() { }
+
+  public UUID getIdRecommendation() {
+		return this.idRecommendation;
+	}
+
+	public void setIdRecommendation(UUID idRecommendation) {
+		this.idRecommendation = idRecommendation;
+	}
+
+	public Buku getDaftarbukuimpl() {
+		return this.daftarbukuimpl;
+	}
+
+	public void setDaftarbukuimpl(Buku daftarbukuimpl) {
+		this.daftarbukuimpl = daftarbukuimpl;
+	}
 	
 	public HashMap<String, Object> toHashMap() {
         HashMap<String, Object> recommendationMap = new HashMap<String,Object>();
+        recommendationMap.put("idRecommendation",getIdRecommendation());
 		recommendationMap.put("daftarbukuimpl",getDaftarbukuimpl());
 
         return recommendationMap;

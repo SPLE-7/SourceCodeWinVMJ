@@ -8,5 +8,7 @@ import LibraryManagementSystem.buku.core.Buku;
 public interface Statistik {
 	public Buku getDaftarbukuimpl();
 	public void setDaftarbukuimpl(Buku daftarbukuimpl);
+  public UUID getIdStatistik();
+	public void setIdStatistik(UUID idStatistik);
 	HashMap<String, Object> toHashMap();
 }

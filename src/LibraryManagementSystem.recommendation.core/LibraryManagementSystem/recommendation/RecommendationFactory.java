@@ -18,6 +18,12 @@ public class RecommendationFactory{
         try {
             Class<?> clz = Class.forName(fullyQualifiedName);
             Constructor<?> constructor = clz.getDeclaredConstructors()[0];
+            for (Constructor<?> c : clz.getDeclaredConstructors()) {
+              if (c.getParameterCount() == base.length) {
+                  constructor = c;
+                  break;
+              }
+            }
             record = (Recommendation) constructor.newInstance(base);
         } 
         catch (IllegalArgumentException e)

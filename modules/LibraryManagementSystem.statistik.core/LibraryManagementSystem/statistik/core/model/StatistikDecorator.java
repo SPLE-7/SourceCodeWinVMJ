@@ -9,6 +9,8 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.CascadeType;
 //add other required packages
 
+import LibraryManagementSystem.buku.core.Buku;
+
 @MappedSuperclass
 public abstract class StatistikDecorator extends StatistikComponent{
     @OneToOne(cascade=CascadeType.ALL)
@@ -17,12 +19,12 @@ public abstract class StatistikDecorator extends StatistikComponent{
 	public StatistikDecorator() {
 		super();
 		this.record = record;
-    this.idStatistik =  idStatistik.randomUUID();
+    this.idStatistik =  UUID.randomUUID();
 	}
 		
 	public StatistikDecorator (StatistikComponent record) {
 		this.record = record;
-    this.idStatistik =  idStatistik.randomUUID();
+    this.idStatistik =  UUID.randomUUID();
 	}
 
   public StatistikDecorator (UUID idStatistik,StatistikComponent record) {
@@ -33,12 +35,22 @@ public abstract class StatistikDecorator extends StatistikComponent{
 	public StatistikDecorator (StatistikComponent record, String objectName) {
 		this.record = record;	
 		this.objectName=objectName;
-    this.idStatistik =  idStatistik.randomUUID();
+    this.idStatistik =  UUID.randomUUID();
 	}
 
+  public UUID getIdStatistik() {
+		return record.getIdStatistik();
+	}
+	public void setIdStatistik(UUID idStatistik) {
+		record.setIdStatistik(idStatistik);
+	}
 
-	public int hitungTotalBuku() {
-		return record.hitungTotalBuku();
+  public Buku getDaftarbukuimpl() {
+		return record.daftarbukuimpl;
+	}
+
+	public void setDaftarbukuimpl(Buku daftarbukuimpl) {
+		record.daftarbukuimpl = daftarbukuimpl;
 	}
 
 	public HashMap<String, Object> toHashMap() {

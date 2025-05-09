@@ -22,16 +22,32 @@ import LibraryManagementSystem.buku.core.Buku;
 public class StatistikImpl extends StatistikComponent {
 
 	public StatistikImpl(Buku daftarbukuimpl) {
+    this.idStatistik = UUID.randomUUID();
 		this.daftarbukuimpl = daftarbukuimpl;
 	}
 
 	public StatistikImpl() { }
 
+  public StatistikImpl(UUID idStatistik, Buku daftarbukuimpl) {
+    this.idStatistik = idStatistik;
+    this.daftarbukuimpl = daftarbukuimpl;
+  }
 
-	public int hitungTotalBuku() {
-		// TODO: implement this method
-        return 0;
-	}
+  public UUID getIdStatistik() {
+    return this.idStatistik;
+  }
+
+  public void setIdStatistik(UUID idStatistik) {
+    this.idStatistik = idStatistik;
+  }
+
+  public Buku getDaftarbukuimpl() {
+    return this.daftarbukuimpl;
+  }
+
+  public void setDaftarbukuimpl(Buku daftarbukuimpl) {
+    this.daftarbukuimpl = daftarbukuimpl;
+  }
 	
 	public HashMap<String, Object> toHashMap() {
         HashMap<String, Object> statistikMap = new HashMap<String,Object>();

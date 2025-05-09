@@ -52,8 +52,6 @@ public class PeminjamanBukuServiceImpl extends PeminjamanBukuServiceComponent{
 
 			UUID recordId = (UUID) peminjamanbuku.get("idPeminjamanBuku");
       UUID id = UUID.fromString((String) requestBody.get("idPeminjamanBuku"));
-      System.out.println("recordId: " + recordId);
-      System.out.println("requestBody.get(\"idPeminjamanBuku\"): " + requestBody.get("idPeminjamanBuku"));
 			if (recordId.equals(id)){
 				return peminjamanbuku;
 			}

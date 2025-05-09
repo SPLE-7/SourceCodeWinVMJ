@@ -17,11 +17,11 @@ public abstract class PeminjamanBukuDecorator extends PeminjamanBukuComponent{
 	public PeminjamanBukuDecorator () {
 		super();
 		this.record = record;
-		this.idPeminjamanBuku =  idPeminjamanBuku.randomUUID();
+		this.idPeminjamanBuku =  UUID.randomUUID();
 	}
 		
 	public PeminjamanBukuDecorator (PeminjamanBukuComponent record) {
-		this.idPeminjamanBuku =  idPeminjamanBuku.randomUUID();
+		this.idPeminjamanBuku =  UUID.randomUUID();
 		this.record = record;
 	}
 
@@ -31,7 +31,7 @@ public abstract class PeminjamanBukuDecorator extends PeminjamanBukuComponent{
 	}
 	
 	public PeminjamanBukuDecorator (PeminjamanBukuComponent record, String objectName) {
-		this.idPeminjamanBuku =  idPeminjamanBuku.randomUUID();
+		this.idPeminjamanBuku =  UUID.randomUUID();
 		this.record = record;	
 		this.objectName=objectName;
 	}

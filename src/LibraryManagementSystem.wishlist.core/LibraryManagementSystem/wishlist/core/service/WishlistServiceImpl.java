@@ -25,31 +25,34 @@ public class WishlistServiceImpl extends WishlistServiceComponent{
 
     public Wishlist createWishlist(Map<String, Object> requestBody){
 		
-		// TODO: MASIH BINGUNG
 		User akunimpl = userRepository.getObject(UUID.fromString((String) requestBody.get("id")));
 		Buku daftarbukuimpl = bukuRepository.getObject(UUID.fromString((String) requestBody.get("idBuku")));
-		//to do: fix association attributes
 		Wishlist wishlist = WishlistFactory.createWishlist(
 			"LibraryManagementSystem.wishlist.core.WishlistImpl",
 		akunimpl
 		, daftarbukuimpl);
 		wishlistRepository.saveObject(wishlist);
+
+    System.out.println("Wishlist created: " + wishlist.getIdWishlist());
+    System.out.println("Akunimpl: " + wishlist.getAkunimpl().getId());
+    System.out.println("Daftarbukuimpl: " + wishlist.getDaftarbukuimpl().getId());
 		return wishlist;
 	}
 
     public HashMap<String, Object> getWishlist(Map<String, Object> requestBody){
 		List<HashMap<String, Object>> wishlistList = getAllWishlist(requestBody);
 		for (HashMap<String, Object> wishlist : wishlistList){
-			UUID recordId = UUID.fromString((String) wishlist.get("idWishlist"));
-			if (recordId.equals(requestBody.get("idWishlist"))){
+      UUID recordId = (UUID) wishlist.get("idWishlist");
+      UUID id = UUID.fromString((String) requestBody.get("idWishlist"));
+			if (recordId.equals(id)){
 				return wishlist;
 			}
 		}
 		return null;
 	}
 
-    public List<HashMap<String,Object>> getAllWishlist(Map<String, Object> requestBody){
-		String table = (String) requestBody.get("table_name");
+  public List<HashMap<String,Object>> getAllWishlist(Map<String, Object> requestBody){
+		String table = "wishlist_impl";
 		List<Wishlist> List = wishlistRepository.getAllObject(table);
 		return transformListToHashMap(List);
 	}

@@ -20,13 +20,4 @@ public class StatistikResourceImpl extends StatistikResourceComponent{
 		Map<String, Object> requestBody = vmjExchange.getPayload(); 
 		return statistikServiceImpl.getAllStatistik(requestBody);
 	}
-
-	public int hitungTotalBuku() {
-		return statistikServiceImpl.hitungTotalBuku();
-	}
-
-	@Route(url="call/statistik/list/object")
-    public List<Buku> getListObject(){
-		return statistikServiceImpl.getListObject();
-	}
 }
