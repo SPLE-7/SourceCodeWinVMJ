@@ -21,6 +21,12 @@ import vmj.auth.model.core.User;
 @Table(name = "wishlist_impl")
 public class WishlistImpl extends WishlistComponent {
 
+    public WishlistImpl(UUID idWishlist, User akunimpl, Buku daftarbukuimpl) {
+        this.akunimpl = akunimpl;
+        this.daftarbukuimpl = daftarbukuimpl;
+        this.idWishlist = idWishlist;
+    }
+
     public WishlistImpl(User akunimpl, Buku daftarbukuimpl) {
         this.akunimpl = akunimpl;
         this.daftarbukuimpl = daftarbukuimpl;
@@ -28,12 +34,12 @@ public class WishlistImpl extends WishlistComponent {
     }
 
     public WishlistImpl() {
-        this.idWishlist = UUID.randomUUID();
     }
 
     @Override
     public HashMap<String, Object> toHashMap() {
         HashMap<String, Object> wishlistMap = new HashMap<>();
+        wishlistMap.put("idWishlist", getIdWishlist());
         wishlistMap.put("akunimpl", getAkunimpl());
         wishlistMap.put("daftarbukuimpl", getDaftarbukuimpl());
         return wishlistMap;

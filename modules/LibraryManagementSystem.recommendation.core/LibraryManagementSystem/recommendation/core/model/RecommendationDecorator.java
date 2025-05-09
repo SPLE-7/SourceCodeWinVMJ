@@ -9,6 +9,8 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.CascadeType;
 //add other required packages
 
+import LibraryManagementSystem.buku.core.Buku;
+
 @MappedSuperclass
 public abstract class RecommendationDecorator extends RecommendationComponent{
     @OneToOne(cascade=CascadeType.ALL)
@@ -17,27 +19,43 @@ public abstract class RecommendationDecorator extends RecommendationComponent{
 	public RecommendationDecorator () {
 		super();
 		this.record = record;
-    this.idRecommendation =  idRecommendation.randomUUID();
+    	this.idRecommendation =  UUID.randomUUID();
 	}
   
-  public RecommendationDecorator (UUID idRecommendation, RecommendationComponent record) {
+  	public RecommendationDecorator (UUID idRecommendation, RecommendationComponent record) {
 		this.record = record;
-    this.idRecommendation =  idRecommendation;
+    	this.idRecommendation =  idRecommendation;
 	}
 		
 	public RecommendationDecorator (RecommendationComponent record) {
 		this.record = record;
-    this.idRecommendation =  idRecommendation.randomUUID();
+    	this.idRecommendation =  UUID.randomUUID();
 	}
 	
 	public RecommendationDecorator (RecommendationComponent record, String objectName) {
 		this.record = record;	
 		this.objectName=objectName;
-    this.idRecommendation =  idRecommendation.randomUUID();
+    	this.idRecommendation =  UUID.randomUUID();
 	}
 
 	public HashMap<String, Object> toHashMap() {
         return this.record.toHashMap();
     }
+
+	public UUID getIdRecommendation() {
+		return record.idRecommendation;
+	}
+
+	public void setIdRecommendation(UUID idRecommendation) {
+		record.idRecommendation = idRecommendation;
+	}
+
+	public Buku getDaftarbukuimpl() {
+		return record.daftarbukuimpl;
+	}
+
+	public void setDaftarbukuimpl(Buku daftarbukuimpl) {
+		record.daftarbukuimpl = daftarbukuimpl;
+	}
 
 }

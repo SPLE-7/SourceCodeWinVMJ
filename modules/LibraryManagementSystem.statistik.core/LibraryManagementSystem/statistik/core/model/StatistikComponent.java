@@ -18,7 +18,7 @@ import LibraryManagementSystem.buku.core.Buku;
 @Table(name="statistik_comp")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class StatistikComponent implements Statistik{
-  @Id
+  	@Id
 	protected UUID idStatistik; 
 	
 	@ManyToOne(targetEntity=LibraryManagementSystem.buku.core.BukuComponent.class)
@@ -31,14 +31,19 @@ public abstract class StatistikComponent implements Statistik{
 	} 
 
 	public StatistikComponent(
-        Buku daftarbukuimpl
+        UUID idStatistik, Buku daftarbukuimpl
     ) {
+		this.idStatistik = idStatistik;
         this.daftarbukuimpl = daftarbukuimpl;
     }
 
-  public UUID getIdStatistik() {
-    return this.idStatistik;
-  }
+	public UUID getIdStatistik() {
+		return this.idStatistik;
+	}
+
+	public void setIdStatistik(UUID idStatistik) {
+		this.idStatistik = idStatistik;
+	}
 
 	public Buku getDaftarbukuimpl() {
 		return this.daftarbukuimpl;
@@ -47,12 +52,11 @@ public abstract class StatistikComponent implements Statistik{
 	public void setDaftarbukuimpl(Buku daftarbukuimpl) {
 		this.daftarbukuimpl = daftarbukuimpl;
 	}
- 
-	public abstract int hitungTotalBuku();
 
 	@Override
     public String toString() {
         return "{" +
+			" idStatistik='" + getIdStatistik() + "'" +
             " daftarbukuimpl='" + getDaftarbukuimpl() + "'" +
             "}";
     }

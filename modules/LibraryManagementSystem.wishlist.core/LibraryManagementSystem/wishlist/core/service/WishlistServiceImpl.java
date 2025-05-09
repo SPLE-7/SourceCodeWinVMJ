@@ -31,8 +31,8 @@ public class WishlistServiceImpl extends WishlistServiceComponent{
 		//to do: fix association attributes
 		Wishlist wishlist = WishlistFactory.createWishlist(
 			"LibraryManagementSystem.wishlist.core.WishlistImpl",
-		akunimpl
-		, daftarbukuimpl);
+		akunimpl, 
+		daftarbukuimpl);
 		wishlistRepository.saveObject(wishlist);
 		return wishlist;
 	}
@@ -49,7 +49,7 @@ public class WishlistServiceImpl extends WishlistServiceComponent{
 	}
 
     public List<HashMap<String,Object>> getAllWishlist(Map<String, Object> requestBody){
-		String table = (String) requestBody.get("table_name");
+		String table = "wishlist_impl";
 		List<Wishlist> List = wishlistRepository.getAllObject(table);
 		return transformListToHashMap(List);
 	}

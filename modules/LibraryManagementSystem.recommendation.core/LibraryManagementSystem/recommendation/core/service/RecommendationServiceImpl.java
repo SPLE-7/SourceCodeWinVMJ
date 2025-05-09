@@ -21,7 +21,7 @@ import vmj.auth.annotations.Restricted;
 public class RecommendationServiceImpl extends RecommendationServiceComponent{
 
     public List<HashMap<String,Object>> getAllRecommendation(Map<String, Object> requestBody){
-		String table = (String) requestBody.get("table_name");
+		String table = "recommendation_impl";
 		List<Recommendation> List = recommendationRepository.getAllObject(table);
 		return transformListToHashMap(List);
 	}

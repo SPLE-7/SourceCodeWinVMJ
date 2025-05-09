@@ -32,14 +32,20 @@ public abstract class RecommendationComponent implements Recommendation{
 	} 
   
 	public RecommendationComponent(
-    Buku daftarbukuimpl
+		UUID idRecommendation, 
+    	Buku daftarbukuimpl
     ) {
+		this.idRecommendation =idRecommendation;
         this.daftarbukuimpl = daftarbukuimpl;
     }
 
-  public UUID getIdRecommendation() {
-    return this.idRecommendation;
-  }
+	public UUID getIdRecommendation() {
+		return this.idRecommendation;
+	}
+
+	public void setIdRecommendation(UUID idRecommendation) {
+		this.idRecommendation = idRecommendation;
+	}
 
 	public Buku getDaftarbukuimpl() {
 		return this.daftarbukuimpl;
@@ -52,6 +58,7 @@ public abstract class RecommendationComponent implements Recommendation{
 	@Override
     public String toString() {
         return "{" +
+			" idRecommendation='" + getIdRecommendation() + "'" +
             " daftarbukuimpl='" + getDaftarbukuimpl() + "'" +
             "}";
     }

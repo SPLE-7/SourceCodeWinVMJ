@@ -9,4 +9,6 @@ public interface Recommendation {
 	public Buku getDaftarbukuimpl();
 	public void setDaftarbukuimpl(Buku daftarbukuimpl);
 	HashMap<String, Object> toHashMap();
+	public UUID getIdRecommendation();
+	public void setIdRecommendation(UUID idBuku);
 }

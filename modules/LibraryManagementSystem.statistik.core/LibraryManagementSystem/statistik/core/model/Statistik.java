@@ -6,6 +6,8 @@ import java.util.*;
 import LibraryManagementSystem.buku.core.Buku;
 
 public interface Statistik {
+	public UUID getIdStatistik();
+	public void setIdStatistik(UUID idStatistik);
 	public Buku getDaftarbukuimpl();
 	public void setDaftarbukuimpl(Buku daftarbukuimpl);
 	HashMap<String, Object> toHashMap();

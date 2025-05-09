@@ -23,18 +23,35 @@ public class StatistikImpl extends StatistikComponent {
 
 	public StatistikImpl(Buku daftarbukuimpl) {
 		this.daftarbukuimpl = daftarbukuimpl;
+		this.idStatistik = idStatistik.randomUUID();
+	}
+
+	public StatistikImpl(UUID idStatistik, Buku daftarbukuimpl) {
+		this.idStatistik = idStatistik;
+		this.daftarbukuimpl = daftarbukuimpl;
 	}
 
 	public StatistikImpl() { }
-
-
-	public int hitungTotalBuku() {
-		// TODO: implement this method
-        return 0;
-	}
 	
+	public UUID getIdStatistik() {
+		return this.idStatistik;
+	}
+
+	public void setIdStatisti(UUID idStatistik) {
+		this.idStatistik = idStatistik;
+	}
+
+	public Buku getDaftarbukuimpl() {
+		return this.daftarbukuimpl;
+	}
+
+	public void setDaftarbukuimpl(Buku daftarbukuimpl) {
+		this.daftarbukuimpl = daftarbukuimpl;
+	}
+
 	public HashMap<String, Object> toHashMap() {
         HashMap<String, Object> statistikMap = new HashMap<String,Object>();
+		statistikMap.put("idStatistik",getIdStatistik());
 		statistikMap.put("daftarbukuimpl",getDaftarbukuimpl());
 
         return statistikMap;
