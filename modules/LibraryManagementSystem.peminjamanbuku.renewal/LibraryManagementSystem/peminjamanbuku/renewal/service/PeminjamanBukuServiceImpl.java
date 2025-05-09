@@ -9,8 +9,11 @@ import LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuImpl;
 import LibraryManagementSystem.peminjamanbuku.core.PeminjamanBukuServiceComponent;
 
 public class PeminjamanBukuServiceImpl extends PeminjamanBukuServiceDecorator {
+    PeminjamanBukuServiceComponent record;
+
     public PeminjamanBukuServiceImpl (PeminjamanBukuServiceComponent record) {
         super(record);
+        this.record = record;
     }
 
 	public boolean RequestRenewal() {

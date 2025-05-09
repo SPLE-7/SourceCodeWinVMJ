@@ -21,9 +21,4 @@ public class StatistikResourceImpl extends StatistikResourceDecorator {
     public List<HashMap<String,Object>> getAll(VMJExchange vmjExchange){
 		return statistikServiceImpl.getAllStatistik(vmjExchange.getPayload());
 	}
-
-	public int hitungTotalBuku() {
-		// TODO: implement this method
-		return statistikServiceImpl.hitungTotalBuku();
-	}
 }

@@ -27,9 +27,4 @@ public class StatistikImpl extends StatistikDecorator {
 		super(record);
 		this.objectName = StatistikImpl.class.getName();
 	}
-
-	public int hitungTotalBuku() {
-		// TODO: implement this method
-        return 0;
-	}
 }

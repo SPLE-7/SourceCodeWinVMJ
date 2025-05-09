@@ -12,9 +12,4 @@ public class StatistikServiceImpl extends StatistikServiceDecorator {
     public StatistikServiceImpl (StatistikServiceComponent record) {
         super(record);
     }
-
-	public int hitungTotalBuku() {
-		// TODO: implement this method
-        return 0;
-	}
 }

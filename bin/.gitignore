@@ -1,8 +1,10 @@
-/LibraryManagementSystem.recommendation.recommendationbygenre/
+/LibraryManagementSystem.buku.bukufisik/
+/LibraryManagementSystem.buku.core/
+/LibraryManagementSystem.peminjamanbuku.core/
+/LibraryManagementSystem.peminjamanbuku.renewal/
+/LibraryManagementSystem.recommendation.core/
 /LibraryManagementSystem.review.core/
-/LibraryManagementSystem.review.reviewkomentar/
+/LibraryManagementSystem.review.reviewbintang/
 /LibraryManagementSystem.statistik.core/
 /LibraryManagementSystem.statistik.genrestatistik/
-/LibraryManagementSystem.wishlist.core/
-/LibraryManagementSystem.wishlist.wishlistwithstatus/
-/librarymanagementsystem.product.basic/
+/librarymanagementsystem.product.testingcode/
