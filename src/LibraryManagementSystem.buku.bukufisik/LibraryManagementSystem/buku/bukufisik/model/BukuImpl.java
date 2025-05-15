@@ -19,6 +19,7 @@ public class BukuImpl extends BukuDecorator {
 	protected int jumlahBuku;
   public BukuImpl(BukuComponent record, int jumlahBuku) {
 		super(record);
+    System.out.println(record, "BukuImpl");
 		this.jumlahBuku = jumlahBuku;
 		this.objectName = BukuImpl.class.getName();
 	}

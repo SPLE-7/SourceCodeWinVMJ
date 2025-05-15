@@ -386,6 +386,40 @@ public class Basic {
 			}}
         );
 
+		featureModelMappings.put(
+	            vmj.auth.model.core.UserComponent.class.getName(),
+				new HashMap<String, String[]>() {{
+					put("components", new String[] {
+						vmj.auth.model.core.UserComponent.class.getName()
+					});
+					put("deltas", new String[] {
+						vmj.auth.model.passworded.UserImpl.class.getName()
+					});
+				}}
+	        );
+	        
+	    featureModelMappings.put(
+				vmj.auth.model.core.RoleComponent.class.getName(),
+				new HashMap<String, String[]>() {{
+					put("components", new String[] {
+						vmj.auth.model.core.RoleComponent.class.getName()
+					});
+					put("deltas", new String[] {
+					});
+				}}
+	        );
+	    
+	    featureModelMappings.put(
+				vmj.auth.model.core.UserRoleComponent.class.getName(),
+				new HashMap<String, String[]>() {{
+					put("components", new String[] {
+						vmj.auth.model.core.UserRoleComponent.class.getName()
+					});
+					put("deltas", new String[] {
+					});
+				}}
+	        );
+	    
 		return featureModelMappings;
 	}
 

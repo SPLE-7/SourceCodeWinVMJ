@@ -12,26 +12,29 @@ import LibraryManagementSystem.buku.core.BukuServiceComponent;
 
 
 public class BukuServiceImpl extends BukuServiceDecorator {
-    BukuServiceComponent record;
   
       public BukuServiceImpl (BukuServiceComponent record) {
           super(record);
-          this.record = record;
       }
   
       public Buku createBukuFisik(Map<String, Object> requestBody){
   
-        Buku buku = this.record.createBuku(requestBody);
+        // Buku buku = this.record.createBuku(requestBody);
   
         Double jumlahBukuDouble = (Double) requestBody.get("jumlahBuku");
         int jumlahBuku = jumlahBukuDouble.intValue();
         
+        System.out.println("jumlahBuku: " + jumlahBuku);
+
         Buku bukuFisik = BukuFactory.createBuku(
           "LibraryManagementSystem.buku.bukufisik.BukuImpl"
-        , buku
+        , record.createBuku(requestBody)
         , jumlahBuku
         );
-        bukuRepository.saveObject(buku);
+
+        System.out.println("bukuFisik: " + bukuFisik);
+
+        bukuRepository.saveObject(bukuFisik);
         return bukuFisik;
       }
   }
