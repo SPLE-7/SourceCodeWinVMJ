@@ -17,6 +17,13 @@ import LibraryManagementSystem.buku.core.BukuComponent;
 public class BukuImpl extends BukuDecorator {
 
 	protected int jumlahBuku;
+  public BukuImpl(BukuComponent record, int jumlahBuku) {
+		super(record);
+    System.out.println(record, "BukuImpl");
+		this.jumlahBuku = jumlahBuku;
+		this.objectName = BukuImpl.class.getName();
+	}
+
 	public BukuImpl() {        
 		super();
         this.objectName = BukuImpl.class.getName();
@@ -27,12 +34,6 @@ public class BukuImpl extends BukuDecorator {
 		this.jumlahBuku = jumlahBuku;
 		this.objectName = BukuImpl.class.getName();
     }
-	
-	public BukuImpl(BukuComponent record, int jumlahBuku) {
-		super(record);
-		this.jumlahBuku = jumlahBuku;
-		this.objectName = BukuImpl.class.getName();
-	}
 
 	public int getJumlahBuku() {
 		return this.jumlahBuku;

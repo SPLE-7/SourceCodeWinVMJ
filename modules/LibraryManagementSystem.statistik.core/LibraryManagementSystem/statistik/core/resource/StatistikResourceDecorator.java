@@ -16,12 +16,4 @@ public abstract class StatistikResourceDecorator extends StatistikResourceCompon
     public List<HashMap<String,Object>> getAllStatistik(VMJExchange vmjExchange){
 		return record.getAllStatistik(vmjExchange);
 	}
-
-	public int hitungTotalBuku() {
-		return record.hitungTotalBuku();
-	}
-
-	public List<Buku> getListObject(){
-		return record.getListObject();
-	}
 }

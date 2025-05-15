@@ -11,8 +11,4 @@ public abstract class StatistikResourceComponent implements StatistikResource{
 	public StatistikResourceComponent() { }
 
     public abstract List<HashMap<String,Object>> getAllStatistik(VMJExchange vmjExchange);
-
-	public abstract int hitungTotalBuku();
-
-    public abstract List<Buku> getListObject();
 }

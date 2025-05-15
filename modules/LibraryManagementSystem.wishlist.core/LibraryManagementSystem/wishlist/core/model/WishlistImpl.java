@@ -27,13 +27,42 @@ public class WishlistImpl extends WishlistComponent {
         this.idWishlist = UUID.randomUUID();
     }
 
-    public WishlistImpl() {
-        this.idWishlist = UUID.randomUUID();
+    public WishlistImpl(UUID idWishlist, User akunimpl, Buku daftarbukuimpl) {
+        this.idWishlist = idWishlist;
+        this.akunimpl = akunimpl;
+        this.daftarbukuimpl = daftarbukuimpl;
     }
 
-    @Override
+    public WishlistImpl() {}
+
+    public UUID getIdWishlist() {
+        return this.idWishlist;
+    }
+
+    public void setIdWishlist(UUID idWishlist) {
+        this.idWishlist = idWishlist;
+    }
+
+    public User getAkunimpl() {
+        return this.akunimpl;
+    }
+
+    public void setAkunimpl(User akunimpl) {
+        this.akunimpl = akunimpl;
+    }
+
+    public Buku getDaftarbukuimpl() {
+        return this.daftarbukuimpl;
+    }
+
+    public void setDaftarbukuimpl(Buku daftarbukuimpl) {
+        this.daftarbukuimpl = daftarbukuimpl;
+    }
+
     public HashMap<String, Object> toHashMap() {
         HashMap<String, Object> wishlistMap = new HashMap<>();
+        System.out.println(getIdWishlist() + " Ini testing");
+        wishlistMap.put("idWishlist", getIdWishlist());
         wishlistMap.put("akunimpl", getAkunimpl());
         wishlistMap.put("daftarbukuimpl", getDaftarbukuimpl());
         return wishlistMap;

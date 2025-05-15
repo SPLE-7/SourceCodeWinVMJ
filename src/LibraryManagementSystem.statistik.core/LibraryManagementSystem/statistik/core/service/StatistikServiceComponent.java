@@ -17,6 +17,4 @@ public abstract class StatistikServiceComponent implements StatistikService{
 
     public abstract List<HashMap<String,Object>> getAllStatistik(Map<String, Object> requestBody);
     public abstract List<HashMap<String,Object>> transformListToHashMap(List<Statistik> List);
-    public abstract List<Buku> getListObject();
-	public abstract int hitungTotalBuku();
 }

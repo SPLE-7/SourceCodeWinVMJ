@@ -45,8 +45,10 @@ public class BukuResourceImpl extends BukuResourceComponent{
 		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
 			return null;
 		}
-		
-		return bukuServiceImpl.deleteBuku(requestBody);
+    if (vmjExchange.getHttpMethod().equals("POST")) {
+      return bukuServiceImpl.deleteBuku(requestBody);
+    }
+		throw new NotFoundException("Route tidak ditemukan");
 	}
 
 }

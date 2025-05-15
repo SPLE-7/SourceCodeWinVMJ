@@ -20,14 +20,14 @@ import LibraryManagementSystem.buku.core.Buku;
 @Table(name="review_impl")
 public class ReviewImpl extends ReviewComponent {
 
-	public ReviewImpl(UUID idReview, Date postedAt, Buku daftarbukuimpl) {
+	public ReviewImpl(UUID idReview, String postedAt, Buku daftarbukuimpl) {
 		this.idReview = idReview;
 		this.postedAt = postedAt;
 		this.daftarbukuimpl = daftarbukuimpl;
 	}
 
-	public ReviewImpl(Date postedAt, Buku daftarbukuimpl) {
-		this.idReview =  idReview.randomUUID();
+	public ReviewImpl(String postedAt, Buku daftarbukuimpl) {
+		this.idReview =  UUID.randomUUID();
 		this.postedAt = postedAt;
 		this.daftarbukuimpl = daftarbukuimpl;
 	}
@@ -41,11 +41,11 @@ public class ReviewImpl extends ReviewComponent {
 	public void setIdReview(UUID idReview) {
 		this.idReview = idReview;
 	}
-	public Date getPostedAt() {
+	public String getPostedAt() {
 		return this.postedAt;
 	}
 
-	public void setPostedAt(Date postedAt) {
+	public void setPostedAt(String postedAt) {
 		this.postedAt = postedAt;
 	}
 

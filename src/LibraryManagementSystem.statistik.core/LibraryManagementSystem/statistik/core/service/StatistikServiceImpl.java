@@ -22,7 +22,7 @@ import LibraryManagementSystem.buku.core.Buku;
 public class StatistikServiceImpl extends StatistikServiceComponent{
 
     public List<HashMap<String,Object>> getAllStatistik(Map<String, Object> requestBody){
-		String table = (String) requestBody.get("table_name");
+		String table = "statistik_impl";
 		List<Statistik> List = statistikRepository.getAllObject(table);
 		return transformListToHashMap(List);
 	}
@@ -35,13 +35,4 @@ public class StatistikServiceImpl extends StatistikServiceComponent{
 
         return resultList;
 	}
-
-	public int hitungTotalBuku() {
-		// TODO: implement this method (not used)
-		return 0;
-	}
-
-	public List<Buku> getListObject() {
-        return bukuRepository.getListObject("table_name", "amount", "10000");
-    }
 }

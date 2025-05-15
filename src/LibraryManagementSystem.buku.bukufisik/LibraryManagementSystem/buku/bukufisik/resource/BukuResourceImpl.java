@@ -5,24 +5,27 @@ import vmj.routing.route.Route;
 import vmj.routing.route.VMJExchange;
 
 import LibraryManagementSystem.buku.core.BukuResourceDecorator;
+import LibraryManagementSystem.buku.BukuServiceFactory;
 import LibraryManagementSystem.buku.core.BukuImpl;
 import LibraryManagementSystem.buku.core.BukuResourceComponent;
 import LibraryManagementSystem.buku.core.BukuServiceComponent;
+import LibraryManagementSystem.buku.core.BukuServiceImpl;
 
 public class BukuResourceImpl extends BukuResourceDecorator {
     private BukuServiceImpl bukuServiceImpl;
 	
 	public BukuResourceImpl (BukuResourceComponent record, BukuServiceComponent bukuServiceComponent) {
         super(record);
-		this.bukuServiceImpl = new BukuServiceImpl(bukuServiceComponent);
+		    this.bukuServiceImpl = new BukuServiceImpl(bukuServiceComponent);
     }
 
 	@Route(url="call/bukufisik/create")
     public HashMap<String, Object> create(VMJExchange vmjExchange){
+    System.out.println("createBukuFisik", vmjExchange.getPayload());
 		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
 			return null;
 		}
-		return (bukuServiceImpl.createBuku(vmjExchange.getPayload())).toHashMap();
+		return (bukuServiceImpl.createBukuFisik(vmjExchange.getPayload())).toHashMap();
 	}
 
 	// @Restriced(permission = "")

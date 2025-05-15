@@ -9,8 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.persistence.ManyToOne;
 
 import LibraryManagementSystem.buku.core.Buku;
+import LibraryManagementSystem.buku.core.BukuComponent;
 
 @Entity
 @Table(name="review_comp")
@@ -19,8 +21,11 @@ public abstract class ReviewComponent implements Review{
 	@Id
 	protected UUID idReview; 
 
-	protected Date postedAt;
+	protected String postedAt;
+
+  @ManyToOne(targetEntity=LibraryManagementSystem.buku.core.BukuComponent.class)
 	public Buku daftarbukuimpl;
+
 	protected String objectName = ReviewComponent.class.getName();
 
 	public ReviewComponent() {
@@ -28,7 +33,7 @@ public abstract class ReviewComponent implements Review{
 	} 
 
 	public ReviewComponent(
-        UUID idReview, Date postedAt, Buku daftarbukuimpl
+        UUID idReview, String postedAt, Buku daftarbukuimpl
     ) {
         this.idReview = idReview;
         this.postedAt = postedAt;
@@ -42,11 +47,11 @@ public abstract class ReviewComponent implements Review{
 	public void setIdReview(UUID idReview) {
 		this.idReview = idReview;
 	}
-	public Date getPostedAt() {
+	public String getPostedAt() {
 		return this.postedAt;
 	}
 
-	public void setPostedAt(Date postedAt) {
+	public void setPostedAt(String postedAt) {
 		this.postedAt = postedAt;
 	}
 	

@@ -19,6 +19,16 @@ import javax.persistence.OneToMany;
 @Table(name="buku_impl")
 public class BukuImpl extends BukuComponent {
 
+  public BukuImpl(String judulBuku, String penulis, String penerbit, int jumlahHalaman, String deskripsiBuku, String genre) {
+		this.idBuku =  UUID.randomUUID();
+		this.judulBuku = judulBuku;
+		this.penulis = penulis;
+		this.penerbit = penerbit;
+		this.jumlahHalaman = jumlahHalaman;
+		this.deskripsiBuku = deskripsiBuku;
+		this.genre = genre;
+	}
+
 	public BukuImpl(UUID idBuku, String judulBuku, String penulis, String penerbit, int jumlahHalaman, String deskripsiBuku, String genre) {
 		this.idBuku = idBuku;
 		this.judulBuku = judulBuku;
@@ -29,17 +39,7 @@ public class BukuImpl extends BukuComponent {
 		this.genre = genre;
 	}
 
-	public BukuImpl(String judulBuku, String penulis, String penerbit, int jumlahHalaman, String deskripsiBuku, String genre) {
-		this.idBuku =  idBuku.randomUUID();
-		this.judulBuku = judulBuku;
-		this.penulis = penulis;
-		this.penerbit = penerbit;
-		this.jumlahHalaman = jumlahHalaman;
-		this.deskripsiBuku = deskripsiBuku;
-		this.genre = genre;
-	}
-
-	public BukuImpl() { }
+  public BukuImpl() {}
 
 	public UUID getIdBuku() {
 		return this.idBuku;

@@ -23,15 +23,14 @@ public abstract class PeminjamanBukuComponent implements PeminjamanBuku{
 	protected UUID idPeminjamanBuku; 
 	protected String status;
 
-	// AMBIL DARI EXTERNAL LIBRARY
 	@ManyToOne(targetEntity=vmj.auth.model.core.UserComponent.class)
 	public User akunimpl;
 
 	@ManyToOne(targetEntity=LibraryManagementSystem.buku.core.BukuComponent.class)
 	public Buku daftarbukuimpl;
 
-	protected Date tanggalPeminjaman;
-	protected Date tanggalPengembalian;
+	protected String tanggalPeminjaman;
+	protected String tanggalPengembalian;
 	protected String objectName = PeminjamanBukuComponent.class.getName();
 
 	public PeminjamanBukuComponent() {
@@ -39,7 +38,7 @@ public abstract class PeminjamanBukuComponent implements PeminjamanBuku{
 	} 
 
 	public PeminjamanBukuComponent(
-        UUID idPeminjamanBuku, String status, User akunimpl, Buku daftarbukuimpl, Date tanggalPeminjaman, Date tanggalPengembalian
+        UUID idPeminjamanBuku, String status, User akunimpl, Buku daftarbukuimpl, String tanggalPeminjaman, String tanggalPengembalian
     ) {
         this.idPeminjamanBuku = idPeminjamanBuku;
         this.status = status;
@@ -80,18 +79,18 @@ public abstract class PeminjamanBukuComponent implements PeminjamanBuku{
 		this.daftarbukuimpl = daftarbukuimpl;
 	}
 	
-	public Date getTanggalPeminjaman() {
+	public String getTanggalPeminjaman() {
 		return this.tanggalPeminjaman;
 	}
 
-	public void setTanggalPeminjaman(Date tanggalPeminjaman) {
+	public void setTanggalPeminjaman(String tanggalPeminjaman) {
 		this.tanggalPeminjaman = tanggalPeminjaman;
 	}
-	public Date getTanggalPengembalian() {
+	public String getTanggalPengembalian() {
 		return this.tanggalPengembalian;
 	}
 
-	public void setTanggalPengembalian(Date tanggalPengembalian) {
+	public void setTanggalPengembalian(String tanggalPengembalian) {
 		this.tanggalPengembalian = tanggalPengembalian;
 	}
  
