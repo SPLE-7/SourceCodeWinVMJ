@@ -20,15 +20,17 @@ import LibraryManagementSystem.buku.core.Buku;
 @Table(name="review_impl")
 public class ReviewImpl extends ReviewComponent {
 
-	public ReviewImpl(UUID idReview, String postedAt, Buku daftarbukuimpl) {
+	public ReviewImpl(UUID idReview, String postedAt, int score, Buku daftarbukuimpl) {
 		this.idReview = idReview;
 		this.postedAt = postedAt;
+		this.score = score;
 		this.daftarbukuimpl = daftarbukuimpl;
 	}
 
-	public ReviewImpl(String postedAt, Buku daftarbukuimpl) {
+	public ReviewImpl(String postedAt, int score, Buku daftarbukuimpl) {
 		this.idReview =  UUID.randomUUID();
 		this.postedAt = postedAt;
+		this.score = score;
 		this.daftarbukuimpl = daftarbukuimpl;
 	}
 
@@ -49,11 +51,20 @@ public class ReviewImpl extends ReviewComponent {
 		this.postedAt = postedAt;
 	}
 
+	public int getScore() {
+		return this.score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+
 	
 	public HashMap<String, Object> toHashMap() {
         HashMap<String, Object> reviewMap = new HashMap<String,Object>();
 		reviewMap.put("idReview",getIdReview());
 		reviewMap.put("postedAt",getPostedAt());
+		reviewMap.put("score",getScore());
 		reviewMap.put("daftarbukuimpl",getDaftarbukuimpl());
 
         return reviewMap;

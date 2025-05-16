@@ -23,6 +23,8 @@ public abstract class ReviewComponent implements Review{
 
 	protected String postedAt;
 
+	protected int score;
+
   @ManyToOne(targetEntity=LibraryManagementSystem.buku.core.BukuComponent.class)
 	public Buku daftarbukuimpl;
 
@@ -33,10 +35,11 @@ public abstract class ReviewComponent implements Review{
 	} 
 
 	public ReviewComponent(
-        UUID idReview, String postedAt, Buku daftarbukuimpl
+        UUID idReview, String postedAt, int score, Buku daftarbukuimpl
     ) {
         this.idReview = idReview;
         this.postedAt = postedAt;
+		this.score = score;
         this.daftarbukuimpl = daftarbukuimpl;
     }
 
@@ -54,6 +57,14 @@ public abstract class ReviewComponent implements Review{
 	public void setPostedAt(String postedAt) {
 		this.postedAt = postedAt;
 	}
+
+	public int getScore() {
+		return this.score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
 	
 	public Buku getDaftarbukuimpl() {
 		return this.daftarbukuimpl;
@@ -69,6 +80,7 @@ public abstract class ReviewComponent implements Review{
         return "{" +
             " idReview='" + getIdReview() + "'" +
             " postedAt='" + getPostedAt() + "'" +
+			" score='" + getScore() + "'" +
             " daftarbukuimpl='" + getDaftarbukuimpl() + "'" +
             "}";
     }

@@ -21,7 +21,7 @@ public class WishlistResourceImpl extends WishlistResourceDecorator {
 		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
 			return null;
 		}
-		return wishlistServiceImpl.createWishlist(vmjExchange.getPayload()).toHashMap();
+		return wishlistServiceImpl.createWishlistStatus(vmjExchange.getPayload()).toHashMap();
 	}
 
 	// @Restriced(permission = "")

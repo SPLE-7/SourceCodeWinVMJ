@@ -9,14 +9,13 @@ import LibraryManagementSystem.buku.BukuServiceFactory;
 import LibraryManagementSystem.buku.core.BukuImpl;
 import LibraryManagementSystem.buku.core.BukuResourceComponent;
 import LibraryManagementSystem.buku.core.BukuServiceComponent;
-import LibraryManagementSystem.buku.core.BukuServiceImpl;
 
 public class BukuResourceImpl extends BukuResourceDecorator {
     private BukuServiceImpl bukuServiceImpl;
 	
 	public BukuResourceImpl (BukuResourceComponent record, BukuServiceComponent bukuServiceComponent) {
         super(record);
-		    this.bukuServiceImpl = new BukuServiceImpl(bukuServiceComponent);
+		this.bukuServiceImpl = new BukuServiceImpl(bukuServiceComponent);
     }
 
 	@Route(url="call/bukufisik/create")
@@ -25,6 +24,7 @@ public class BukuResourceImpl extends BukuResourceDecorator {
 			return null;
 		}
 		return (bukuServiceImpl.createBukuFisik(vmjExchange.getPayload())).toHashMap();
+    return null;
 	}
 
 	// @Restriced(permission = "")

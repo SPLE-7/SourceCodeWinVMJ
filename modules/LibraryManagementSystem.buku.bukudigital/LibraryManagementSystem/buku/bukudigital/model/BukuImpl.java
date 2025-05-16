@@ -43,4 +43,32 @@ public class BukuImpl extends BukuDecorator {
 	}
 
 
+	@Override
+	public HashMap<String, Object> toHashMap() {
+        HashMap<String, Object> bukuMap = new HashMap<String,Object>();
+		bukuMap.put("idBuku",getIdBuku());
+		bukuMap.put("judulBuku",getJudulBuku());
+		bukuMap.put("penulis",getPenulis());
+		bukuMap.put("penerbit",getPenerbit());
+		bukuMap.put("jumlahHalaman",getJumlahHalaman());
+		bukuMap.put("deskripsiBuku",getDeskripsiBuku());
+		bukuMap.put("genre",getGenre());
+		bukuMap.put("linkBuku",getLinkBuku());
+
+        return bukuMap;
+    }
+
+	@Override
+	public String toString() {
+        return "{" +
+            " idBuku='" + getIdBuku() + "'" +
+            " judulBuku='" + getJudulBuku() + "'" +
+            " penulis='" + getPenulis() + "'" +
+            " penerbit='" + getPenerbit() + "'" +
+            " jumlahHalaman='" + getJumlahHalaman() + "'" +
+            " deskripsiBuku='" + getDeskripsiBuku() + "'" +
+            " genre='" + getGenre() + "'" +
+			" linkBuku='" + getLinkBuku() + "'" +
+            "}";
+    }
 }

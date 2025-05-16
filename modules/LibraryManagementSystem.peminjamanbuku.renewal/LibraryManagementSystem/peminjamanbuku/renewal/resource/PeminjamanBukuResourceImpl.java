@@ -25,7 +25,7 @@ public class PeminjamanBukuResourceImpl extends PeminjamanBukuResourceDecorator 
 		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
 			return null;
 		}
-		return peminjamanBukuServiceImpl.createPeminjamanBuku(vmjExchange.getPayload()).toHashMap();
+		return peminjamanBukuServiceImpl.createPeminjamanBukuRenewal(vmjExchange.getPayload()).toHashMap();
 	}
 
 	// @Restriced(permission = "")

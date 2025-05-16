@@ -22,7 +22,7 @@ public class ReviewResourceImpl extends ReviewResourceDecorator {
 		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
 			return null;
 		}
-		return reviewServiceImpl.createReview(vmjExchange.getPayload()).toHashMap();
+		return reviewServiceImpl.createReviewComment(vmjExchange.getPayload()).toHashMap();
 	}
 
 	// @Restriced(permission = "")

@@ -34,9 +34,43 @@ public class PeminjamanBukuImpl extends PeminjamanBukuDecorator {
 		this.objectName = PeminjamanBukuImpl.class.getName();
 	}
 
-
 	public boolean RequestRenewal() {
 		// TODO: implement this method
         return true;
 	}
+
+	public int getRenewalCount() {
+		return this.renewalCount;
+	}
+
+	public void setRenewalCount(int renewalCount) {
+		this.renewalCount = renewalCount;
+	}
+
+	@Override
+    public String toString() {
+        return "{" +
+            " idPeminjamanBuku='" + getIdPeminjamanBuku() + "'" +
+            " status='" + getStatus() + "'" +
+            " akunimpl='" + getAkunimpl() + "'" +
+            " daftarbukuimpl='" + getDaftarbukuimpl() + "'" +
+            " tanggalPeminjaman='" + getTanggalPeminjaman() + "'" +
+            " tanggalPengembalian='" + getTanggalPengembalian() + "'" +
+			" renewalCount='" + getRenewalCount() + "'" +
+            "}";
+    }
+	
+	@Override
+	public HashMap<String, Object> toHashMap() {
+        HashMap<String, Object> peminjamanbukuMap = new HashMap<String,Object>();
+		peminjamanbukuMap.put("idPeminjamanBuku",getIdPeminjamanBuku());
+		peminjamanbukuMap.put("status",getStatus());
+		peminjamanbukuMap.put("akunimpl",getAkunimpl());
+		peminjamanbukuMap.put("daftarbukuimpl",getDaftarbukuimpl());
+		peminjamanbukuMap.put("tanggalPeminjaman",getTanggalPeminjaman());
+		peminjamanbukuMap.put("tanggalPengembalian",getTanggalPengembalian());
+		peminjamanbukuMap.put("renewalCount",getRenewalCount());
+
+        return peminjamanbukuMap;
+    }
 }

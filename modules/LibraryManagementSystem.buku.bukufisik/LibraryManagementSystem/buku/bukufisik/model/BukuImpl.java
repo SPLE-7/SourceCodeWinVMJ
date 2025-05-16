@@ -17,9 +17,8 @@ import LibraryManagementSystem.buku.core.BukuComponent;
 public class BukuImpl extends BukuDecorator {
 
 	protected int jumlahBuku;
-  public BukuImpl(BukuComponent record, int jumlahBuku) {
+  	public BukuImpl(BukuComponent record, int jumlahBuku) {
 		super(record);
-    System.out.println(record, "BukuImpl");
 		this.jumlahBuku = jumlahBuku;
 		this.objectName = BukuImpl.class.getName();
 	}
@@ -44,4 +43,32 @@ public class BukuImpl extends BukuDecorator {
 	}
 
 
+	@Override
+	public HashMap<String, Object> toHashMap() {
+        HashMap<String, Object> bukuMap = new HashMap<String,Object>();
+		bukuMap.put("idBuku",getIdBuku());
+		bukuMap.put("judulBuku",getJudulBuku());
+		bukuMap.put("penulis",getPenulis());
+		bukuMap.put("penerbit",getPenerbit());
+		bukuMap.put("jumlahHalaman",getJumlahHalaman());
+		bukuMap.put("deskripsiBuku",getDeskripsiBuku());
+		bukuMap.put("genre",getGenre());
+		bukuMap.put("jumlahBuku",getJumlahBuku());
+
+        return bukuMap;
+    }
+
+	@Override
+	public String toString() {
+        return "{" +
+            " idBuku='" + getIdBuku() + "'" +
+            " judulBuku='" + getJudulBuku() + "'" +
+            " penulis='" + getPenulis() + "'" +
+            " penerbit='" + getPenerbit() + "'" +
+            " jumlahHalaman='" + getJumlahHalaman() + "'" +
+            " deskripsiBuku='" + getDeskripsiBuku() + "'" +
+            " genre='" + getGenre() + "'" +
+			" jumlahBuku='" + getJumlahBuku() + "'" +
+            "}";
+    }
 }

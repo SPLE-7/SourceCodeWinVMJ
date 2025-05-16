@@ -23,7 +23,7 @@ public class BukuResourceImpl extends BukuResourceDecorator {
 		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
 			return null;
 		}
-		return (bukuServiceImpl.createBuku(vmjExchange.getPayload())).toHashMap();
+		return (bukuServiceImpl.createBukuDigital(vmjExchange.getPayload())).toHashMap();
 	}
 
 	// @Restriced(permission = "")

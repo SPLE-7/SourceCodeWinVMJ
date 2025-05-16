@@ -34,7 +34,7 @@ public class WishlistResourceImpl extends WishlistResourceDecorator {
 	// @Restriced(permission = "")
     @Route(url="call/wishlistwithnote/list")
     public List<HashMap<String,Object>> getAll(VMJExchange vmjExchange){
-		return wishlistServiceImpl.getAllWishlist(vmjExchange.getPayload());
+		return wishlistServiceImpl.getAllWishlistNotes(vmjExchange.getPayload());
 	}
 
 	// @Restriced(permission = "")

@@ -34,8 +34,36 @@ public class WishlistImpl extends WishlistDecorator {
 		this.objectName = WishlistImpl.class.getName();
 	}
 
+	public String getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	public void updateStatus(UUID bookId, String newStatus) {
 		// TODO: implement this method
 	}
+
+	@Override
+    public String toString() {
+        return "{" +
+            " idWishlist='" + getIdWishlist() + "'" +
+			" status='" + getStatus() + "'" +
+            " akunimpl='" + getAkunimpl() + "'" +
+            " daftarbukuimpl='" + getDaftarbukuimpl() + "'" +
+			"}";
+    }
+
+	@Override
+	public HashMap<String, Object> toHashMap() {
+        HashMap<String, Object> wishlistMap = new HashMap<>();
+        System.out.println(getIdWishlist() + " Ini testing");
+        wishlistMap.put("idWishlist", getIdWishlist());
+		wishlistMap.put("status", getStatus());
+        wishlistMap.put("akunimpl", getAkunimpl());
+        wishlistMap.put("daftarbukuimpl", getDaftarbukuimpl());
+        return wishlistMap;
+    }
 }

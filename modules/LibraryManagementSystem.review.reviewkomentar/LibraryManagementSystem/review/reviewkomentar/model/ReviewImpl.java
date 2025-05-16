@@ -16,6 +16,7 @@ import LibraryManagementSystem.review.core.ReviewComponent;
 @Table(name="review_reviewkomentar")
 public class ReviewImpl extends ReviewDecorator {
 
+	protected String comment;
 	public ReviewImpl() {
         super();
         this.objectName = ReviewImpl.class.getName();
@@ -23,11 +24,44 @@ public class ReviewImpl extends ReviewDecorator {
     
     public ReviewImpl(String commentValue) {
     	super();
+		this.comment = commentValue;
 		this.objectName = ReviewImpl.class.getName();
     }
 	
 	public ReviewImpl(ReviewComponent record, String commentValue) {
 		super(record);
+		this.comment = commentValue;
 		this.objectName = ReviewImpl.class.getName();
 	}
+
+	public String getComment() {
+		return this.comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	@Override
+    public String toString() {
+        return "{" +
+            " idReview='" + getIdReview() + "'" +
+            " postedAt='" + getPostedAt() + "'" +
+			" score='" + getScore() + "'" +
+			" comment='" + getComment() + "'" +
+            " daftarbukuimpl='" + getDaftarbukuimpl() + "'" +
+            "}";
+    }
+
+	@Override
+	public HashMap<String, Object> toHashMap() {
+        HashMap<String, Object> reviewMap = new HashMap<String,Object>();
+		reviewMap.put("idReview",getIdReview());
+		reviewMap.put("postedAt",getPostedAt());
+		reviewMap.put("score",getScore());
+		reviewMap.put("comment",getComment());
+		reviewMap.put("daftarbukuimpl",getDaftarbukuimpl());
+
+        return reviewMap;
+    }
 }

@@ -25,10 +25,12 @@ public class ReviewServiceImpl extends ReviewServiceComponent{
     public Review createReview(Map<String, Object> requestBody){
 		Buku daftarbukuimpl = bukuRepository.getObject(UUID.fromString((String) requestBody.get("idBuku")));
 		String postedAt = requestBody.get("postedAt").toString();
-		//to do: fix association attributes
+		Double scoreDouble = (Double) requestBody.get("score");
+    	int score = scoreDouble.intValue();
 		Review review = ReviewFactory.createReview(
 			"LibraryManagementSystem.review.core.ReviewImpl"
 		, postedAt
+		, score
 		, daftarbukuimpl
 		);
 		reviewRepository.saveObject(review);
