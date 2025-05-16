@@ -27,15 +27,9 @@ public class BukuResourceImpl extends BukuResourceDecorator {
 	}
 
 	// @Restriced(permission = "")
-    @Route(url="call/bukudigital/detail")
-    public HashMap<String, Object> get(VMJExchange vmjExchange){
-		return bukuServiceImpl.getBuku(vmjExchange.getPayload());
-	}
-
-	// @Restriced(permission = "")
     @Route(url="call/bukudigital/list")
     public List<HashMap<String,Object>> getAll(VMJExchange vmjExchange){
-		return bukuServiceImpl.getAllBuku(vmjExchange.getPayload());
+		return bukuServiceImpl.getAllBukuDigital(vmjExchange.getPayload());
 	}
 
 	// @Restriced(permission = "")
@@ -45,7 +39,7 @@ public class BukuResourceImpl extends BukuResourceDecorator {
 			return null;
 		}
 		
-		return bukuServiceImpl.deleteBuku(vmjExchange.getPayload());
+		return bukuServiceImpl.deleteBukuDigital(vmjExchange.getPayload());
 	}
 
 }

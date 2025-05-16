@@ -22,12 +22,8 @@ public class PeminjamanBukuServiceImpl extends PeminjamanBukuServiceDecorator {
 
     public PeminjamanBuku createPeminjamanBukuRenewal(Map<String, Object> requestBody){
   
-        // Buku buku = this.record.createBuku(requestBody);
-  
         Double renewalCountDouble = (Double) requestBody.get("renewalCount");
         int renewalCount = renewalCountDouble.intValue();
-        
-        System.out.println("renewalCount: " + renewalCount);
 
         PeminjamanBuku peminjamanBukuRenewal = PeminjamanBukuFactory.createPeminjamanBuku(
           "LibraryManagementSystem.peminjamanbuku.renewal.PeminjamanBukuImpl"
@@ -35,9 +31,33 @@ public class PeminjamanBukuServiceImpl extends PeminjamanBukuServiceDecorator {
         , renewalCount
         );
 
-        System.out.println("peminjamanBukuRenewal: " + peminjamanBukuRenewal);
-
         peminjamanRepository.saveObject(peminjamanBukuRenewal);
         return peminjamanBukuRenewal;
+      }
+
+      public List<HashMap<String,Object>> getAllPeminjamanBukuRenewal(Map<String, Object> requestBody){
+        String table = "peminjamanbuku_renewal";
+        List<PeminjamanBuku> List = peminjamanRepository.getAllObject(table);
+        return this.transformListToHashMap(List);
+      }
+    
+        public List<HashMap<String,Object>> transformListToHashMap(List<PeminjamanBuku> List){
+        List<HashMap<String,Object>> resultList = new ArrayList<HashMap<String,Object>>();
+            for(int i = 0; i < List.size(); i++) {
+                resultList.add(List.get(i).toHashMap());
+            }
+    
+            return resultList;
+      }
+
+      public HashMap<String, Object> getPeminjamanBukuRenewal(Map<String, Object> requestBody){
+        List<HashMap<String, Object>> peminjamanBukuList = getAllPeminjamanBukuRenewal(requestBody);
+        for (HashMap<String, Object> peminjamanBuku : peminjamanBukuList){
+          UUID recordId = (UUID) peminjamanBuku.get("idPeminjamanBuku");
+          if (recordId.equals(requestBody.get("idPeminjamanBuku"))) {
+            return peminjamanBuku;
+          }
+        }
+        return null;
       }
 }

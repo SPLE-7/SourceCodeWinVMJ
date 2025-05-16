@@ -22,8 +22,6 @@ public class BukuServiceImpl extends BukuServiceDecorator {
         Double jumlahBukuDouble = (Double) requestBody.get("jumlahBuku");
         int jumlahBuku = jumlahBukuDouble.intValue();
         
-        System.out.println("jumlahBuku: " + jumlahBuku);
-
         Buku bukuFisik = BukuFactory.createBuku(
           "LibraryManagementSystem.buku.bukufisik.BukuImpl"
         , record.createBuku(requestBody)
