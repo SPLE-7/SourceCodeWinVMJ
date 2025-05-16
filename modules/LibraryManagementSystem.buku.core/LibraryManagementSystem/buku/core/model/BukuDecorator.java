@@ -21,7 +21,6 @@ public abstract class BukuDecorator extends BukuComponent{
 	}
 
 	public BukuDecorator (BukuComponent record) {
-    System.out.println(record);
 		this.idBuku =  UUID.randomUUID();
 		this.record = record;
 	}

@@ -19,8 +19,6 @@ public class BukuServiceImpl extends BukuServiceDecorator {
   
       public Buku createBukuFisik(Map<String, Object> requestBody){
   
-        // Buku buku = this.record.createBuku(requestBody);
-  
         Double jumlahBukuDouble = (Double) requestBody.get("jumlahBuku");
         int jumlahBuku = jumlahBukuDouble.intValue();
         
@@ -32,9 +30,40 @@ public class BukuServiceImpl extends BukuServiceDecorator {
         , jumlahBuku
         );
 
-        System.out.println("bukuFisik: " + bukuFisik);
-
         bukuRepository.saveObject(bukuFisik);
         return bukuFisik;
+      }
+
+      public List<HashMap<String,Object>> getAllBukuFisik(Map<String, Object> requestBody){
+        String table = "buku_bukufisik";
+        List<Buku> List = bukuRepository.getAllObject(table);
+        return this.transformListToHashMap(List);
+      }
+    
+        public List<HashMap<String,Object>> transformListToHashMap(List<Buku> List){
+        List<HashMap<String,Object>> resultList = new ArrayList<HashMap<String,Object>>();
+            for(int i = 0; i < List.size(); i++) {
+                resultList.add(List.get(i).toHashMap());
+            }
+    
+            return resultList;
+      }
+
+      public HashMap<String, Object> getBukuFisik(Map<String, Object> requestBody){
+        List<HashMap<String, Object>> bukuList = getAllBukuFisik(requestBody);
+        for (HashMap<String, Object> buku : bukuList){
+          UUID recordId = (UUID) buku.get("idBuku");
+          if (recordId.equals(requestBody.get("idBuku"))) {
+            return buku;
+          }
+        }
+        return null;
+      }
+
+      public List<HashMap<String,Object>> deleteBukuFisik(Map<String, Object> requestBody){
+        HashMap<String, Object> buku = getBukuFisik(requestBody);
+        UUID recordId = (UUID) buku.get("base_component_id");
+        bukuRepository.deleteObject(recordId);
+        return getAllBukuFisik(requestBody);
       }
   }
