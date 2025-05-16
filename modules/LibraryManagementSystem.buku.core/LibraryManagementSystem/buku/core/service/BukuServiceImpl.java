@@ -45,9 +45,10 @@ public class BukuServiceImpl extends BukuServiceComponent{
 
     public HashMap<String, Object> getBuku(Map<String, Object> requestBody){
 		List<HashMap<String, Object>> bukuList = getAllBuku(requestBody);
+    UUID idRequest = UUID.fromString((String) requestBody.get("idBuku"));
 		for (HashMap<String, Object> buku : bukuList){
 			UUID recordId = (UUID) buku.get("idBuku");
-			if (recordId.equals(requestBody.get("idBuku"))) {
+			if (recordId.equals(idRequest)) {
 				return buku;
 			}
 		}
