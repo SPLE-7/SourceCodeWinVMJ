@@ -21,7 +21,6 @@ public class BukuResourceImpl extends BukuResourceDecorator {
 
 	@Route(url="call/bukufisik/create")
     public HashMap<String, Object> create(VMJExchange vmjExchange){
-    System.out.println("createBukuFisik", vmjExchange.getPayload());
 		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
 			return null;
 		}
