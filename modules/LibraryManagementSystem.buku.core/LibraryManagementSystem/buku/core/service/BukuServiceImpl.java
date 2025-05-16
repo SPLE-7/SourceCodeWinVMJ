@@ -25,7 +25,7 @@ public class BukuServiceImpl extends BukuServiceComponent{
 		String penulis = (String) requestBody.get("penulis");
 		String penerbit = (String) requestBody.get("penerbit");
 		Double jumlahHalamanDouble = (Double) requestBody.get("jumlahHalaman");
-    int jumlahHalaman = jumlahHalamanDouble.intValue();
+    	int jumlahHalaman = jumlahHalamanDouble.intValue();
 		String deskripsiBuku = (String) requestBody.get("deskripsiBuku");
 		String genre = (String) requestBody.get("genre");
 		

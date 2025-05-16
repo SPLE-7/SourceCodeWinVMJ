@@ -48,6 +48,13 @@ public abstract class ReviewDecorator extends ReviewComponent{
 	public void setPostedAt(String postedAt) {
 		record.setPostedAt(postedAt);
 	}
+	public int getScore() {
+		return record.score;
+	}
+
+	public void setScore(int score) {
+		record.score = score;
+	}
 
 
 	public HashMap<String, Object> toHashMap() {

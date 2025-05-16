@@ -8,23 +8,16 @@ features
 					BukuFisik
 					BukuDigital
 		optional
-			Statistik {abstract true}
-				or
-					GenreStatistik
-					AuthorStatistik
+			Statistik
 			PeminjamanBuku
 				optional
 					Renewal
 			Review {abstract true}
-				or
+				optional
 					DenganKomentar
-					DenganBintang
 			Wishlist {abstract true}
 				alternative
 					WithNote
 					WithStatus
-			Rekomendasi {abstract true}
-				alternative
-					Genre
-					Author
+			Rekomendasi
 
