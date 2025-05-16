@@ -26,15 +26,9 @@ public class ReviewResourceImpl extends ReviewResourceDecorator {
 	}
 
 	// @Restriced(permission = "")
-    @Route(url="call/reviewkomentar/detail")
-    public HashMap<String, Object> get(VMJExchange vmjExchange){
-		return reviewServiceImpl.getReview(vmjExchange.getPayload());
-	}
-
-	// @Restriced(permission = "")
     @Route(url="call/reviewkomentar/list")
     public List<HashMap<String,Object>> getAll(VMJExchange vmjExchange){
-		return reviewServiceImpl.getAllReview(vmjExchange.getPayload());
+		return reviewServiceImpl.getAllReviewComment(vmjExchange.getPayload());
 	}
 
 }

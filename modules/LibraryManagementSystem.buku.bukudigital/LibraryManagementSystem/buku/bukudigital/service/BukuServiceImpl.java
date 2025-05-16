@@ -16,22 +16,49 @@ public class BukuServiceImpl extends BukuServiceDecorator {
     }
     
     public Buku createBukuDigital(Map<String, Object> requestBody){
-  
-        // Buku buku = this.record.createBuku(requestBody);
 
         String linkBuku = (String) requestBody.get("linkBuku");
         
-        System.out.println("linkBuku: " + linkBuku);
-
         Buku bukuDigital = BukuFactory.createBuku(
           "LibraryManagementSystem.buku.bukudigital.BukuImpl"
         , record.createBuku(requestBody)
         , linkBuku
         );
 
-        System.out.println("bukuFisik: " + bukuDigital);
-
         bukuRepository.saveObject(bukuDigital);
         return bukuDigital;
+      }
+
+      public List<HashMap<String,Object>> getAllBukuDigital(Map<String, Object> requestBody){
+        String table = "buku_bukudigital";
+        List<Buku> List = bukuRepository.getAllObject(table);
+        return this.transformListToHashMap(List);
+      }
+    
+        public List<HashMap<String,Object>> transformListToHashMap(List<Buku> List){
+        List<HashMap<String,Object>> resultList = new ArrayList<HashMap<String,Object>>();
+            for(int i = 0; i < List.size(); i++) {
+                resultList.add(List.get(i).toHashMap());
+            }
+    
+            return resultList;
+      }
+
+      public HashMap<String, Object> getBukuDigital(Map<String, Object> requestBody){
+        List<HashMap<String, Object>> bukuList = getAllBukuDigital(requestBody);
+        for (HashMap<String, Object> buku : bukuList){
+          UUID recordId = (UUID) buku.get("idBuku");
+          if (recordId.equals(requestBody.get("idBuku"))) {
+            return buku;
+          }
+        }
+        return null;
+      }
+
+      public List<HashMap<String,Object>> deleteBukuDigital(Map<String, Object> requestBody){
+        HashMap<String, Object> buku = getBukuDigital(requestBody);
+        UUID recordId = (UUID) buku.get("base_component_id");
+        bukuRepository.deleteObject(recordId);
+        return getAllBukuDigital(requestBody);
       }
 }

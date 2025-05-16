@@ -25,15 +25,9 @@ public class WishlistResourceImpl extends WishlistResourceDecorator {
 	}
 
 	// @Restriced(permission = "")
-    @Route(url="call/wishlistwithstatus/detail")
-    public HashMap<String, Object> get(VMJExchange vmjExchange){
-		return wishlistServiceImpl.getWishlist(vmjExchange.getPayload());
-	}
-
-	// @Restriced(permission = "")
     @Route(url="call/wishlistwithstatus/list")
     public List<HashMap<String,Object>> getAll(VMJExchange vmjExchange){
-		return wishlistServiceImpl.getAllWishlist(vmjExchange.getPayload());
+		return wishlistServiceImpl.getAllWishlistStatus(vmjExchange.getPayload());
 	}
 
 	// @Restriced(permission = "")
@@ -43,7 +37,7 @@ public class WishlistResourceImpl extends WishlistResourceDecorator {
 			return null;
 		}
 		
-		return wishlistServiceImpl.deleteWishlist(vmjExchange.getPayload());
+		return wishlistServiceImpl.deleteWishlistStatus(vmjExchange.getPayload());
 	}
 
 	public void updateStatus(UUID bookId, String newStatus) {

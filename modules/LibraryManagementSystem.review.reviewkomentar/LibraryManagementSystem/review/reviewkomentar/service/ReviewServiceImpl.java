@@ -17,11 +17,7 @@ public class ReviewServiceImpl extends ReviewServiceDecorator {
 
     public Review createReviewComment(Map<String, Object> requestBody){
   
-        // Buku buku = this.record.createBuku(requestBody);
-  
         String comment = (String) requestBody.get("comment");
-
-        System.out.println("comment: " + comment);
 
         Review reviewComment = ReviewFactory.createReview(
           "LibraryManagementSystem.review.reviewkomentar.ReviewImpl"
@@ -29,9 +25,33 @@ public class ReviewServiceImpl extends ReviewServiceDecorator {
         , comment
         );
 
-        System.out.println("reviewKomentar: " + reviewComment);
-
         reviewRepository.saveObject(reviewComment);
         return reviewComment;
+      }
+
+      public List<HashMap<String,Object>> getAllReviewComment(Map<String, Object> requestBody){
+        String table = "review_reviewkomentar";
+        List<Review> List = reviewRepository.getAllObject(table);
+        return this.transformListToHashMap(List);
+      }
+    
+        public List<HashMap<String,Object>> transformListToHashMap(List<Review> List){
+        List<HashMap<String,Object>> resultList = new ArrayList<HashMap<String,Object>>();
+            for(int i = 0; i < List.size(); i++) {
+                resultList.add(List.get(i).toHashMap());
+            }
+    
+            return resultList;
+      }
+
+      public HashMap<String, Object> getReviewComment(Map<String, Object> requestBody){
+        List<HashMap<String, Object>> reviewList = getAllReviewComment(requestBody);
+        for (HashMap<String, Object> review : reviewList){
+          UUID recordId = (UUID) review.get("idReview");
+          if (recordId.equals(requestBody.get("idReview"))) {
+            return review;
+          }
+        }
+        return null;
       }
 }

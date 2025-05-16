@@ -22,13 +22,7 @@ public class WishlistResourceImpl extends WishlistResourceDecorator {
 		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
 			return null;
 		}
-		return wishlistServiceImpl.createWishlist(vmjExchange.getPayload()).toHashMap();
-	}
-
-	// @Restriced(permission = "")
-    @Route(url="call/wishlistwithnote/detail")
-    public HashMap<String, Object> get(VMJExchange vmjExchange){
-		return wishlistServiceImpl.getWishlist(vmjExchange.getPayload());
+		return wishlistServiceImpl.createWishlistNotes(vmjExchange.getPayload()).toHashMap();
 	}
 
 	// @Restriced(permission = "")
@@ -44,7 +38,7 @@ public class WishlistResourceImpl extends WishlistResourceDecorator {
 			return null;
 		}
 		
-		return wishlistServiceImpl.deleteWishlist(vmjExchange.getPayload());
+		return wishlistServiceImpl.deleteWishlistNotes(vmjExchange.getPayload());
 	}
 
 	public void updateNote(UUID bookId, String newNotes) {

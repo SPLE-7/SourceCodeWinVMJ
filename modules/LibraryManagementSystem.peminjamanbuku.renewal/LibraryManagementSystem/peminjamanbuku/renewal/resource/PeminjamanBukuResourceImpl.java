@@ -29,15 +29,9 @@ public class PeminjamanBukuResourceImpl extends PeminjamanBukuResourceDecorator 
 	}
 
 	// @Restriced(permission = "")
-    @Route(url="call/renewal/detail")
-    public HashMap<String, Object> get(VMJExchange vmjExchange){
-		return peminjamanBukuServiceImpl.getPeminjamanBuku(vmjExchange.getPayload());
-	}
-
-	// @Restriced(permission = "")
     @Route(url="call/renewal/list")
     public List<HashMap<String,Object>> getAll(VMJExchange vmjExchange){
-		return peminjamanBukuServiceImpl.getAllPeminjamanBuku(vmjExchange.getPayload());
+		return peminjamanBukuServiceImpl.getAllPeminjamanBukuRenewal(vmjExchange.getPayload());
 	}
 
 	public boolean RequestRenewal() {
