@@ -15,10 +15,6 @@ public abstract class WishlistResourceDecorator extends WishlistResourceComponen
 		return record.createWishlist(vmjExchange);
 	}
 
-    public HashMap<String, Object> getWishlist(VMJExchange vmjExchange){
-		return record.getWishlist(vmjExchange);
-	}
-
     public List<HashMap<String,Object>> getAllWishlist(VMJExchange vmjExchange){
 		return record.getAllWishlist(vmjExchange);
 	}

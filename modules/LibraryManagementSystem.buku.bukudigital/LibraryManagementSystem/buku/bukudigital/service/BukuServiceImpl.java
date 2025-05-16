@@ -46,9 +46,10 @@ public class BukuServiceImpl extends BukuServiceDecorator {
 
       public HashMap<String, Object> getBukuDigital(Map<String, Object> requestBody){
         List<HashMap<String, Object>> bukuList = getAllBukuDigital(requestBody);
+        UUID idRequest = UUID.fromString((String) requestBody.get("idBuku"));
         for (HashMap<String, Object> buku : bukuList){
           UUID recordId = (UUID) buku.get("idBuku");
-          if (recordId.equals(requestBody.get("idBuku"))) {
+          if (recordId.equals(idRequest)) {
             return buku;
           }
         }
@@ -58,6 +59,7 @@ public class BukuServiceImpl extends BukuServiceDecorator {
       public List<HashMap<String,Object>> deleteBukuDigital(Map<String, Object> requestBody){
         HashMap<String, Object> buku = getBukuDigital(requestBody);
         UUID recordId = (UUID) buku.get("base_component_id");
+        System.out.println("recordId: " + recordId + "base_component_id");
         bukuRepository.deleteObject(recordId);
         return getAllBukuDigital(requestBody);
       }

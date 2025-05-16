@@ -24,13 +24,6 @@ public class WishlistResourceImpl extends WishlistResourceComponent{
 	}
 
 	// @Restriced(permission = "")
-    @Route(url="call/wishlist/detail")
-    public HashMap<String, Object> getWishlist(VMJExchange vmjExchange){
-		Map<String, Object> requestBody = vmjExchange.getPayload(); 
-		return wishlistServiceImpl.getWishlist(requestBody);
-	}
-
-	// @Restriced(permission = "")
     @Route(url="call/wishlist/list")
     public List<HashMap<String,Object>> getAllWishlist(VMJExchange vmjExchange){
 		Map<String, Object> requestBody = vmjExchange.getPayload(); 

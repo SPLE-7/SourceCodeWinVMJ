@@ -49,15 +49,4 @@ public class PeminjamanBukuServiceImpl extends PeminjamanBukuServiceDecorator {
     
             return resultList;
       }
-
-      public HashMap<String, Object> getPeminjamanBukuRenewal(Map<String, Object> requestBody){
-        List<HashMap<String, Object>> peminjamanBukuList = getAllPeminjamanBukuRenewal(requestBody);
-        for (HashMap<String, Object> peminjamanBuku : peminjamanBukuList){
-          UUID recordId = (UUID) peminjamanBuku.get("idPeminjamanBuku");
-          if (recordId.equals(requestBody.get("idPeminjamanBuku"))) {
-            return peminjamanBuku;
-          }
-        }
-        return null;
-      }
 }

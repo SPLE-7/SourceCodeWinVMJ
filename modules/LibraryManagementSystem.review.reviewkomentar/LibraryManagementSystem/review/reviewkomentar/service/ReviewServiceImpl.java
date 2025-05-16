@@ -44,14 +44,4 @@ public class ReviewServiceImpl extends ReviewServiceDecorator {
             return resultList;
       }
 
-      public HashMap<String, Object> getReviewComment(Map<String, Object> requestBody){
-        List<HashMap<String, Object>> reviewList = getAllReviewComment(requestBody);
-        for (HashMap<String, Object> review : reviewList){
-          UUID recordId = (UUID) review.get("idReview");
-          if (recordId.equals(requestBody.get("idReview"))) {
-            return review;
-          }
-        }
-        return null;
-      }
 }

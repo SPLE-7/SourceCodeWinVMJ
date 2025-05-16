@@ -19,9 +19,6 @@ public class PeminjamanBukuResourceImpl extends PeminjamanBukuResourceDecorator 
 
 	@Route(url="call/renewal/create")
     public HashMap<String, Object> create(VMJExchange vmjExchange){
-		String renewalCountStr = (String) vmjExchange.getRequestBodyForm("renewalCount");
-		int renewalCount = Integer.parseInt(renewalCountStr);
-		
 		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
 			return null;
 		}

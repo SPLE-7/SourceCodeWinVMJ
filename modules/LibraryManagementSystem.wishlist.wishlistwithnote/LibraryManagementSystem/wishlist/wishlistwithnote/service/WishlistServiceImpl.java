@@ -50,9 +50,10 @@ public class WishlistServiceImpl extends WishlistServiceDecorator {
 
     public HashMap<String, Object> getWishlistNotes(Map<String, Object> requestBody){
       List<HashMap<String, Object>> wishlistList = getAllWishlistNotes(requestBody);
+      UUID idRequest = UUID.fromString((String) requestBody.get("idWishlist"));
       for (HashMap<String, Object> wishlist : wishlistList){
         UUID recordId = (UUID) wishlist.get("idWishlist");
-        if (recordId.equals(requestBody.get("idWishlist"))) {
+        if (recordId.equals(idRequest)) {
           return wishlist;
         }
       }

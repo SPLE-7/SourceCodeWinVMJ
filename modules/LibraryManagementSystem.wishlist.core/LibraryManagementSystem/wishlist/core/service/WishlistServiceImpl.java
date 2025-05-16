@@ -33,9 +33,6 @@ public class WishlistServiceImpl extends WishlistServiceComponent{
 		, daftarbukuimpl);
 		wishlistRepository.saveObject(wishlist);
 
-    System.out.println("Wishlist created: " + wishlist.getIdWishlist());
-    System.out.println("Akunimpl: " + wishlist.getAkunimpl());
-    System.out.println("Daftarbukuimpl: " + wishlist.getDaftarbukuimpl());
 		return wishlist;
 	}
 
