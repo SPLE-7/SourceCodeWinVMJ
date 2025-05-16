@@ -24,7 +24,6 @@ public class BukuResourceImpl extends BukuResourceDecorator {
 			return null;
 		}
 		return (bukuServiceImpl.createBukuFisik(vmjExchange.getPayload())).toHashMap();
-    return null;
 	}
 
 	// @Restriced(permission = "")
