@@ -4,18 +4,13 @@
 	<feature automatic="selected" name="DaftarBuku"/>
 	<feature manual="selected" name="BukuFisik"/>
 	<feature automatic="unselected" name="BukuDigital"/>
-	<feature automatic="selected" manual="selected" name="Statistik"/>
-	<feature manual="selected" name="GenreStatistik"/>
-	<feature name="AuthorStatistik"/>
+	<feature manual="selected" name="Statistik"/>
 	<feature automatic="selected" name="PeminjamanBuku"/>
 	<feature manual="selected" name="Renewal"/>
-	<feature automatic="selected" name="Review"/>
+	<feature name="Review"/>
 	<feature name="DenganKomentar"/>
-	<feature manual="selected" name="DenganBintang"/>
 	<feature name="Wishlist"/>
 	<feature name="WithNote"/>
 	<feature name="WithStatus"/>
 	<feature manual="selected" name="Rekomendasi"/>
-	<feature name="Genre"/>
-	<feature name="Author"/>
 </configuration>
