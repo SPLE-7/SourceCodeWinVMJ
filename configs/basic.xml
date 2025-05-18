@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <configuration>
 	<feature automatic="selected" name="LibraryManagementSystem"/>
-	<feature automatic="selected" name="DaftarBuku"/>
-	<feature manual="selected" name="BukuFisik"/>
-	<feature automatic="unselected" name="BukuDigital"/>
+	<feature automatic="selected" name="Buku"/>
+	<feature automatic="unselected" name="BukuFisik"/>
+	<feature manual="selected" name="BukuDigital"/>
 	<feature manual="selected" name="Statistik"/>
 	<feature automatic="selected" manual="selected" name="PeminjamanBuku"/>
 	<feature manual="selected" name="Renewal"/>

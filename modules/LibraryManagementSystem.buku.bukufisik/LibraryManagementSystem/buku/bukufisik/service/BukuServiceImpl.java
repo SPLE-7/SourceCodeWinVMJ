@@ -59,13 +59,4 @@ public class BukuServiceImpl extends BukuServiceDecorator {
         return null;
       }
 
-      public List<HashMap<String,Object>> deleteBukuFisik(Map<String, Object> requestBody){
-        HashMap<String, Object> buku = this.getBukuFisik(requestBody);
-        System.out.println("buku: " + buku);
-        // NULL
-        UUID recordId = (UUID) buku.get("base_component_id");
-        System.out.println("recordId: " + recordId + "base_component_id");
-        bukuRepository.deleteObject(recordId);
-        return getAllBukuFisik(requestBody);
-      }
   }

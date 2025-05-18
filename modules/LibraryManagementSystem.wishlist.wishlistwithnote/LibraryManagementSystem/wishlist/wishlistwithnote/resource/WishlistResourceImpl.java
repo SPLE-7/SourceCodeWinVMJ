@@ -30,18 +30,4 @@ public class WishlistResourceImpl extends WishlistResourceDecorator {
     public List<HashMap<String,Object>> getAll(VMJExchange vmjExchange){
 		return wishlistServiceImpl.getAllWishlistNotes(vmjExchange.getPayload());
 	}
-
-	// @Restriced(permission = "")
-    @Route(url="call/wishlistwithnote/delete")
-    public List<HashMap<String,Object>> deleteWishlist(VMJExchange vmjExchange){
-		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
-			return null;
-		}
-		
-		return wishlistServiceImpl.deleteWishlistNotes(vmjExchange.getPayload());
-	}
-
-	public void updateNote(UUID bookId, String newNotes) {
-		// TODO: implement this method
-	}
 }

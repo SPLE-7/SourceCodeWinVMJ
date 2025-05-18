@@ -32,14 +32,4 @@ public class BukuResourceImpl extends BukuResourceDecorator {
 		return bukuServiceImpl.getAllBukuDigital(vmjExchange.getPayload());
 	}
 
-	// @Restriced(permission = "")
-    @Route(url="call/bukudigital/delete")
-    public List<HashMap<String,Object>> deleteBuku(VMJExchange vmjExchange){
-		if (vmjExchange.getHttpMethod().equals("OPTIONS")) {
-			return null;
-		}
-		
-		return bukuServiceImpl.deleteBukuDigital(vmjExchange.getPayload());
-	}
-
 }

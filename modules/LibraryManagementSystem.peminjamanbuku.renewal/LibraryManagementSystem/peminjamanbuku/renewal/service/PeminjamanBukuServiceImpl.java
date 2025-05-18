@@ -15,11 +15,6 @@ public class PeminjamanBukuServiceImpl extends PeminjamanBukuServiceDecorator {
         super(record);
     }
 
-	public boolean RequestRenewal() {
-		// TODO: implement this method
-        return true;
-	}
-
     public PeminjamanBuku createPeminjamanBukuRenewal(Map<String, Object> requestBody){
   
         Double renewalCountDouble = (Double) requestBody.get("renewalCount");

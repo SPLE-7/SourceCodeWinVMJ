@@ -33,12 +33,7 @@ public class PeminjamanBukuImpl extends PeminjamanBukuDecorator {
 		this.renewalCount = renewalCount;
 		this.objectName = PeminjamanBukuImpl.class.getName();
 	}
-
-	public boolean RequestRenewal() {
-		// TODO: implement this method
-        return true;
-	}
-
+  
 	public int getRenewalCount() {
 		return this.renewalCount;
 	}

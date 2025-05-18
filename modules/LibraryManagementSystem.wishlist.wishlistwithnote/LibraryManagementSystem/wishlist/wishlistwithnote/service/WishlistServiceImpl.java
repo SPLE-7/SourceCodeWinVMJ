@@ -15,10 +15,6 @@ public class WishlistServiceImpl extends WishlistServiceDecorator {
         super(record);
     }
 
-    public void updateNote(UUID bookId, String newNotes) {
-      // TODO: implement this method
-    }
-
     public Wishlist createWishlistNotes(Map<String, Object> requestBody){
     
         String notes = (String) requestBody.get("notes");
@@ -46,24 +42,5 @@ public class WishlistServiceImpl extends WishlistServiceDecorator {
           }
   
           return resultList;
-    }
-
-    public HashMap<String, Object> getWishlistNotes(Map<String, Object> requestBody){
-      List<HashMap<String, Object>> wishlistList = getAllWishlistNotes(requestBody);
-      UUID idRequest = UUID.fromString((String) requestBody.get("idWishlist"));
-      for (HashMap<String, Object> wishlist : wishlistList){
-        UUID recordId = (UUID) wishlist.get("idWishlist");
-        if (recordId.equals(idRequest)) {
-          return wishlist;
-        }
-      }
-      return null;
-    }
-
-    public List<HashMap<String,Object>> deleteWishlistNotes(Map<String, Object> requestBody){
-      HashMap<String, Object> wishlist = getWishlistNotes(requestBody);
-      UUID recordId = (UUID) wishlist.get("base_component_id");
-      wishlistRepository.deleteObject(recordId);
-      return getAllWishlistNotes(requestBody);
     }
 }

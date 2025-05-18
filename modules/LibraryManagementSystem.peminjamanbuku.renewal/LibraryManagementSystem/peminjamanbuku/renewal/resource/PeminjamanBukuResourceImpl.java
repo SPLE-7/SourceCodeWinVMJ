@@ -30,9 +30,4 @@ public class PeminjamanBukuResourceImpl extends PeminjamanBukuResourceDecorator 
     public List<HashMap<String,Object>> getAll(VMJExchange vmjExchange){
 		return peminjamanBukuServiceImpl.getAllPeminjamanBukuRenewal(vmjExchange.getPayload());
 	}
-
-	public boolean RequestRenewal() {
-		// TODO: implement this method
-		return true;
-	}
 }

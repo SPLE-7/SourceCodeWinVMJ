@@ -3,7 +3,7 @@ namespace LibraryManagementSystem
 features
 	LibraryManagementSystem {abstract true}
 		mandatory
-			DaftarBuku {abstract true}
+			Buku
 				alternative
 					BukuFisik
 					BukuDigital
