@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+	<feature automatic="selected" name="LibraryManagementSystem"/>
+	<feature automatic="selected" name="Buku"/>
+	<feature manual="selected" name="BukuFisik"/>
+	<feature automatic="unselected" name="BukuDigital"/>
+	<feature manual="selected" name="Statistik"/>
+	<feature automatic="selected" manual="selected" name="PeminjamanBuku"/>
+	<feature manual="selected" name="Renewal"/>
+	<feature name="Review"/>
+	<feature name="DenganKomentar"/>
+	<feature automatic="selected" manual="selected" name="Wishlist"/>
+	<feature manual="selected" name="WithNote"/>
+	<feature automatic="unselected" name="WithStatus"/>
+	<feature name="Rekomendasi"/>
+</configuration>
