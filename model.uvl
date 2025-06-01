@@ -4,7 +4,7 @@ features
 	LibraryManagementSystem {abstract true}
 		mandatory
 			Buku
-				alternative
+				optional
 					BukuFisik
 					BukuDigital
 		optional
@@ -21,3 +21,7 @@ features
 					WithStatus
 			Rekomendasi
 
+constraints
+	PeminjamanBuku <=> BukuFisik | BukuDigital
+	Wishlist <=> BukuDigital | BukuFisik
+	Review <=> BukuFisik | BukuDigital
